@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InicioSesionComponent } from './rutas/inicio-sesion/inicio-sesion.component';
+import { RegistroComponent } from './rutas/registro/registro.component';
+import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InicioSesionComponent
+    InicioSesionComponent,
+    RegistroComponent,
+    CabeceraComponent
   ],
   imports: [
     BrowserModule,
