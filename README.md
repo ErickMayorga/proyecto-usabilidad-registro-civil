@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
-## Actualizar librerias/dependencias
+## Update dependencies/libraries
 
 Run `npm install` in terminal before execute application with `ng serve`
 
@@ -12,7 +12,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Code scaffolding
 
-Run `ng generate component component-name | ng g c component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate component component-name | ng g c component-name` to generate a new component. 
+
+Run `ng generate service service-name | ng g s service-name` to generate a new Angular service.
 
 ## Build
 
