@@ -7,13 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InicioSesionComponent } from './rutas/inicio-sesion/inicio-sesion.component';
 import { RegistroComponent } from './rutas/registro/registro.component';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
+import { RecuperarPasswordComponent } from './rutas/recuperar-password/recuperar-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioSesionComponent,
     RegistroComponent,
-    CabeceraComponent
+    CabeceraComponent,
+    RecuperarPasswordComponent
   ],
   imports: [
     BrowserModule,
