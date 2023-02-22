@@ -1,0 +1,28 @@
+#cabecera {
+  background-image: url("../../../assets/img/fondo_cabecera.jpg");
+  background-size: cover;
+  color: white;
+  padding: 20px 0;
+}
+
+#cabecera h2 {
+  margin: 10px 30px;
+}
+#cabecera h1 {
+  margin: 10px 10px;
+}
+
+#cabecera mat-icon {
+  font-size: 50px;
+  height: 100%;
+}
+
+#tituloVerificacionDatos {
+  border-left: 3px solid white;
+  padding-left: 30px;
+}
+
+#menu-general {
+  padding: 15px;
+  background-color: #23497A;
+}

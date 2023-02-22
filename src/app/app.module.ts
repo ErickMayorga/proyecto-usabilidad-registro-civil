@@ -9,6 +9,11 @@ import { RegistroComponent } from './rutas/registro/registro.component';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 import { RecuperarPasswordComponent } from './rutas/recuperar-password/recuperar-password.component';
 import {MatIconModule} from "@angular/material/icon";
+import { BarraMenuComponent } from './componentes/barra-menu/barra-menu.component';
+import { NotificacionComponent } from './componentes/notificacion/notificacion.component';
+import { CampoEntradaComponent } from './componentes/campo-entrada/campo-entrada.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -16,13 +21,19 @@ import {MatIconModule} from "@angular/material/icon";
     InicioSesionComponent,
     RegistroComponent,
     CabeceraComponent,
-    RecuperarPasswordComponent
+    RecuperarPasswordComponent,
+    BarraMenuComponent,
+    NotificacionComponent,
+    CampoEntradaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

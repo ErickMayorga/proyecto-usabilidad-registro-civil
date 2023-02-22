@@ -1,14 +1,26 @@
-<div id="cabecera" class="d-flex flex-row">
-  <span>Dirección General de Registro Civil, Identificación y Cedulación</span>
-  <div class="d-flex flex-column">
-    <span>Verificación de datos</span>
-    <span>EN LÍNEA</span>
-    <mat-icon aria-hidden="false" aria-label="ícono de edición de documento">edit_document</mat-icon>
+<!-- CABECERA -->
+<div id="cabecera" class="d-flex flex-wrap boot-center">
+  <h2 class="col-lg-5 col-md-5 col-sm-12 col-12">Dirección General de Registro Civil, Identificación y Cedulación</h2>
+  <div id="tituloVerificacionDatos" class="col-lg-5 col-md-5 col-sm-12 col-12">
+    <div class="d-flex boot-center flex-wrap">
+      <h1 class="col-lg-9 col-md-9 col-sm-12 col-12">Verificación de datos en línea</h1>
+      <mat-icon class="col-lg-9 col-md-9 col-sm-12 col-12" aria-hidden="false" aria-label="ícono de validación de datos">edit_document</mat-icon>
+    </div>
   </div>
 </div>
-<div id="menu-general">
-  <button id="btnVolverInicio" name="volverInicio" aria-describedby="Volver al inicio" class="btn btn-secondary">
-    <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+<!-- MENU -->
+<div id="menu-general" class="d-flex flex-wrap">
+  <button id="btnVolverInicio" name="volverInicio" aria-describedby="Volver al inicio" class="btn btn-secondary d-flex align-items-center">
+    <mat-icon aria-hidden="false" aria-label="ícono de casa">home</mat-icon>
     <span>Volver al inicio</span>
   </button>
+  <div>
+    <select class="form-select btn btn-secondary" aria-label="selección de idioma de la página">
+      <option selected>Español</option>
+      <option>Quichua</option>
+      <option>Shuar</option>
+    </select>
+  </div>
 </div>
+
+<app-campo-entrada></app-campo-entrada>

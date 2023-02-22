@@ -1,0 +1,32 @@
+<ng-container [ngSwitch]="campoOpciones.type">
+  <ng-container *ngSwitchCase="'checkbox'">
+    <ng-container *ngTemplateOutlet="checkbox"></ng-container>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'select'">
+    <ng-container *ngTemplateOutlet="select"></ng-container>
+  </ng-container>
+
+  <ng-container *ngSwitchDefault>
+    <ng-container *ngTemplateOutlet="generic"></ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #checkbox>
+  <div [formGroup]="campoOpciones.formGroup" class="form-group">
+    <label for="{{campoOpciones.nameField}}">{{campoOpciones.title}}</label>
+    <input id="{{campoOpciones.nameField}}"
+           class="form-control"
+           [type]="campoOpciones.type"
+           [placeholder]="campoOpciones.placeholder">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+</ng-template>
+
+<ng-template #select>
+
+</ng-template>
+
+<ng-template #generic>
+
+</ng-template>

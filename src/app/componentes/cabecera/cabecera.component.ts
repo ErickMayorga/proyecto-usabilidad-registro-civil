@@ -12,4 +12,8 @@ export class CabeceraComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cambiarIdioma(){
+
+  }
+
 }
