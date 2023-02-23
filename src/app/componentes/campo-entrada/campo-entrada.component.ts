@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from "@angular/forms";
-import {CampoEntradaInterface} from "../../servicios/interfaces/campo-entrada.interface";
+import {CampoEntradaInterface} from "../../interfaces/campo-entrada.interface";
+import {CampoEntradaService} from "../../servicios/campo-entrada/campo-entrada.service";
 
 @Component({
   selector: 'app-campo-entrada',
@@ -9,11 +10,17 @@ import {CampoEntradaInterface} from "../../servicios/interfaces/campo-entrada.in
 })
 export class CampoEntradaComponent implements OnInit {
 
+  @Input() formGroup!: FormGroup
   @Input() campoOpciones!: CampoEntradaInterface
 
-  constructor() { }
+  constructor(private readonly campoEntradaService: CampoEntradaService) {
+  }
 
   ngOnInit(): void {
+  }
+
+  obtenerMensajeAyuda(campo: CampoEntradaInterface, formGroup: FormGroup){
+    return this.campoEntradaService.obtenerMensajeValidacion(campo, formGroup)
   }
 
 }

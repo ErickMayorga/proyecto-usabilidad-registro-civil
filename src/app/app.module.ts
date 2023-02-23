@@ -14,6 +14,8 @@ import { NotificacionComponent } from './componentes/notificacion/notificacion.c
 import { CampoEntradaComponent } from './componentes/campo-entrada/campo-entrada.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
+import {CommonModule} from "@angular/common";
+import { TestComponent } from './rutas/test/test.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     RecuperarPasswordComponent,
     BarraMenuComponent,
     NotificacionComponent,
-    CampoEntradaComponent
+    CampoEntradaComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
