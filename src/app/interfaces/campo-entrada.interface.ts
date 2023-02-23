@@ -8,7 +8,8 @@ export interface CampoEntradaInterface {
   nameField: string
   helpText: string
   screenReaderText: string
-  placeholder: string
+  placeholder?: string
   mensajes: MensajeErrorInterface[]
   deshabilitar: boolean
+  opciones?: {clave: string, valor: string}[]
 }
