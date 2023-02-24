@@ -1,5 +1,7 @@
+import {TipoMensajeEnum} from "../constants/tipo-mensaje.enum";
+
 export interface MensajeErrorInterface {
-  tipo: string
+  tipo: TipoMensajeEnum
   textoMensaje: string
   opciones?: any
 }

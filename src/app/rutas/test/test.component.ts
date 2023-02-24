@@ -23,7 +23,7 @@ export class TestComponent implements OnInit {
   campos: CampoEntradaInterface[] = [
     {
       type: TipoCampoEnum.TEXT,
-      title: 'Campo',
+      title: 'Nombre',
       nameField: 'campo',
       helpText: 'Ingrese un valor de texto',
       screenReaderText: 'Screen Reader Field',
@@ -72,8 +72,24 @@ export class TestComponent implements OnInit {
         {clave: "1", valor: "Opcion 1"},
         {clave: "2", valor: "Opcion 2"},
         {clave: "3", valor: "Opcion 3"},
+        {clave: "4", valor: "Opcion 4"},
       ]
-    }
+    },
+    {
+      type: TipoCampoEnum.DATE,
+      title: 'Fecha',
+      nameField: 'fecha',
+      helpText: 'Ingrese una fecha',
+      screenReaderText: 'Screen Reader Fecha',
+      placeholder: 'DD/MM/YYYY',
+      mensajes: [
+        {
+          tipo: TipoMensajeEnum.REQUERIDO,
+          textoMensaje: 'Este campo es requerido',
+        },
+      ],
+      deshabilitar: false
+    },
   ]
 
   constructor(private readonly campoEntradaService: CampoEntradaService,
