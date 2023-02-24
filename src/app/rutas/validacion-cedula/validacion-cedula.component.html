@@ -1,0 +1,25 @@
+<app-barra-menu></app-barra-menu>
+<br>
+<h1 class="text-center">Validación de cédula</h1>
+<div class="container-fluid">
+    <div class="row">   
+            <div class="col-12 d-flex justify-content-center">
+                <div *ngFor="let campo of campos">
+                    <app-campo-entrada
+                      [formGroup]="formGroup"
+                      [campoOpciones]="campo">
+                    </app-campo-entrada>
+                  </div>
+
+            </div>
+    </div>
+            <br>
+            <br>
+    <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <button class="btn boton align-middle" type="submit" routerLink="/registro">Validar</button>
+            </div>
+            
+           </div>   
+       
+</div>
