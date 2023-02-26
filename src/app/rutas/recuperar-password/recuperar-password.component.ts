@@ -48,6 +48,6 @@ export class RecuperarPasswordComponent implements OnInit {
   ngOnInit(): void {
   }
   validarFormulario(){
-    this.formGroup.addControl('new', this.fb.control(Validators.required))
+    
   }
 }
