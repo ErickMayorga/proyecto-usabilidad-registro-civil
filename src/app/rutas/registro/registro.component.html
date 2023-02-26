@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row px-3 py-2" *ngFor="let campo of campos">
         <form action="">
-                <app-campo-entrada 
+                <app-campo-entrada ng-keypress="validar()"
             [formGroup]="formGroup" 
             [campoOpciones]="campo">
             </app-campo-entrada>
@@ -15,7 +15,7 @@
 
         <div class="d-flex justify-content-center">
                 <button name="testInformativo" aria-describedby="Probar informativo"
-                        class="btn boton btn-info d-flex align-items-center" (click)="abrirInformativo()" routerLink="/inicio-sesion">
+                        class="btn boton btn-info d-flex align-items-center" (click)="validarCampos()">
                         <span>Registrar</span>
                 </button>
             <button class="btn boton" type="submit" routerLink="/validacion-cedula">Nueva búsqueda</button>

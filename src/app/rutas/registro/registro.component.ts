@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { NotificacionComponent } from 'src/app/componentes/notificacion/notificacion.component';
 import { TipoBotonEnum } from 'src/app/constants/tipo-boton.enum';
 import { TipoCampoEnum } from 'src/app/constants/tipo-campo.enum';
@@ -43,7 +43,7 @@ export class RegistroComponent implements OnInit {
         nameField: 'cédula',
         helpText: 'Ingrese su cédula',
         screenReaderText: 'Screen Reader cédula',
-        placeholder: 'Ej: 170102365445',
+        placeholder: 'Ej: 1702365445',
         mensajes: [
           {
             tipo: TipoMensajeEnum.REQUERIDO,
@@ -54,6 +54,61 @@ export class RegistroComponent implements OnInit {
             textoMensaje: 'La longitud de este campo es de 10 caracteres',
             opciones: {min: 10}
           },
+        ],
+        deshabilitar: true
+      },
+      {
+        type: TipoCampoEnum.TEXT,
+        title: 'Teléfono convencional',
+        nameField: 'teléfono convencional',
+        helpText: 'Ingrese su teléfono convencional',
+        screenReaderText: 'Screen Reader teléfono convencional',
+        placeholder: 'Ingrese su teléfono convencional',
+        mensajes: [
+          {
+            tipo: TipoMensajeEnum.REQUERIDO,
+            textoMensaje: 'Este campo es requerido',
+          },
+          {
+            tipo: TipoMensajeEnum.LONGITUD,
+            textoMensaje: 'La longitud de este campo es de 7 o 9 caracteres',
+            opciones: {min: 7, max: 9}
+          }
+        ],
+        deshabilitar: false
+      },
+      {
+        type: TipoCampoEnum.TEXT,
+        title: 'Teléfono celular',
+        nameField: 'teléfono celular',
+        helpText: 'Ingrese su teléfono celular',
+        screenReaderText: 'Screen Reader teléfono celular',
+        placeholder: 'Ingrese su teléfono celular',
+        mensajes: [
+          {
+            tipo: TipoMensajeEnum.REQUERIDO,
+            textoMensaje: 'Este campo es requerido',
+          },
+          {
+            tipo: TipoMensajeEnum.LONGITUD,
+            textoMensaje: 'La longitud de este campo es de 10 caracteres',
+            opciones: {min: 10, max: 10}
+          }
+        ],
+        deshabilitar: false
+      },
+      {
+        type: TipoCampoEnum.EMAIL,
+        title: 'Correo electrónico',
+        nameField: 'correo electrónico',
+        helpText: 'Ingrese su correo electrónico',
+        screenReaderText: 'Screen Reader correo electrónico',
+        placeholder: 'Ingrese su correo electrónico',
+        mensajes: [
+          {
+            tipo: TipoMensajeEnum.REQUERIDO,
+            textoMensaje: 'Este campo es requerido',
+          }
         ],
         deshabilitar: false
       },
@@ -97,61 +152,11 @@ export class RegistroComponent implements OnInit {
         ],
         deshabilitar: false
       },
-      {
-        type: TipoCampoEnum.TEXT,
-        title: 'Teléfono convencional',
-        nameField: 'teléfono convencional',
-        helpText: 'Ingrese su teléfono convencional',
-        screenReaderText: 'Screen Reader teléfono convencional',
-        placeholder: 'Ingrese su teléfono convencional',
-        mensajes: [
-          {
-            tipo: TipoMensajeEnum.REQUERIDO,
-            textoMensaje: 'Este campo es requerido',
-          }
-        ],
-        deshabilitar: false
-      },
-      {
-        type: TipoCampoEnum.TEXT,
-        title: 'Teléfono celular',
-        nameField: 'teléfono celular',
-        helpText: 'Ingrese su teléfono celular',
-        screenReaderText: 'Screen Reader teléfono celular',
-        placeholder: 'Ingrese su teléfono celular',
-        mensajes: [
-          {
-            tipo: TipoMensajeEnum.REQUERIDO,
-            textoMensaje: 'Este campo es requerido',
-          },
-          {
-            tipo: TipoMensajeEnum.LONGITUD,
-            textoMensaje: 'La longitud de este campo es de 10 caracteres',
-            opciones: {min: 10}
-          }
-        ],
-        deshabilitar: false
-      },
-      {
-        type: TipoCampoEnum.EMAIL,
-        title: 'Correo electrónico',
-        nameField: 'correo electrónico',
-        helpText: 'Ingrese su correo electrónico',
-        screenReaderText: 'Screen Reader correo electrónico',
-        placeholder: 'Ingrese su correo electrónico',
-        mensajes: [
-          {
-            tipo: TipoMensajeEnum.REQUERIDO,
-            textoMensaje: 'Este campo es requerido',
-          }
-        ],
-        deshabilitar: false
-      },
     ]
 
 
     constructor(private readonly campoEntradaService: CampoEntradaService,
-      public dialog: MatDialog,) {
+      public dialog: MatDialog, private readonly router: Router) {
       this.formGroup = this.campoEntradaService.getFormGroup(this.campos)
     }
 
@@ -195,4 +200,78 @@ export class RegistroComponent implements OnInit {
         
       )
     }
+
+    //mensajes de validación
+    abrirError(){
+      const botones: BotonInterface[] = [
+        {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
+      ]
+      const notificacionOpciones: NotificacionInterface = {
+        tipo: TipoNotificacionEnum.ERROR,
+        titulo: 'Mensaje de error',
+        contenido: 'Debe llenar este campo!',
+        botones: botones
+      }
+        this.mostrarNotificacion(notificacionOpciones)
+      }
+    
+      abrirError2(){
+        const botones: BotonInterface[] = [
+          {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
+        ]
+        const notificacionOpciones: NotificacionInterface = {
+          tipo: TipoNotificacionEnum.ERROR,
+          titulo: 'Mensaje de error',
+          contenido: 'Usted ya esta registrado!',
+          botones: botones
+        }
+          this.mostrarNotificacion(notificacionOpciones)
+        }
+    
+        abrirError3(){
+          const botones: BotonInterface[] = [
+            {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
+          ]
+          const notificacionOpciones: NotificacionInterface = {
+            tipo: TipoNotificacionEnum.ERROR,
+            titulo: 'Mensaje de error',
+            contenido: 'Ingrese solo números en este campo!',
+            botones: botones
+          }
+            this.mostrarNotificacion(notificacionOpciones)
+          }
+
+          abrirError4(){
+            const botones: BotonInterface[] = [
+              {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
+            ]
+            const notificacionOpciones: NotificacionInterface = {
+              tipo: TipoNotificacionEnum.ERROR,
+              titulo: 'Mensaje de error',
+              contenido: 'Las contraseñas no coinciden!',
+              botones: botones
+            }
+              this.mostrarNotificacion(notificacionOpciones)
+            }
+
+   validarCampos(){
+    if(this.formGroup.get('cédula')?.value == ""){
+        this.abrirError();
+        this.router.navigateByUrl('/registro');
+    }else if(this.formGroup.get('cédula')?.value == "1722334455"){
+      this.abrirError2();
+      this.router.navigateByUrl('/registro');
+    }else if(isNaN(this.formGroup.get('cédula')?.value) || 
+    isNaN(this.formGroup.get('teléfono convencional')?.value) || 
+    isNaN(this.formGroup.get('teléfono celular')?.value)){
+      this.abrirError3();
+      this.router.navigateByUrl('/registro');
+    }else if(this.formGroup.get('contraseña')?.value != 
+      this.formGroup.get('confirmación de contraseña')?.value ){
+    }
+    else{
+        this.abrirInformativo();
+        this.router.navigateByUrl('/inicio-sesion');
+    }
+  }
 }
