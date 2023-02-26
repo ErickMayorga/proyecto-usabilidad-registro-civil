@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { RouterLink, RouterStateSnapshot } from '@angular/router';
 import { NotificacionComponent } from 'src/app/componentes/notificacion/notificacion.component';
 import { TipoBotonEnum } from 'src/app/constants/tipo-boton.enum';
 import { TipoCampoEnum } from 'src/app/constants/tipo-campo.enum';
@@ -17,13 +18,14 @@ import { CampoEntradaService } from 'src/app/servicios/campo-entrada/campo-entra
   styleUrls: ['./inicio-sesion.component.scss']
 })
 export class InicioSesionComponent implements OnInit {
+  rutaLink='/inicioSesion'
   formGroup!: FormGroup
   tipoNotificacion = TipoNotificacionEnum
   campos: CampoEntradaInterface[] = [
     {
       type: TipoCampoEnum.TEXT,
       title: 'Cédula:',
-      nameField: 'campo',
+      nameField: 'cedula',
       helpText: 'Ingrese su número de cédula',
       screenReaderText: 'Screen Reader Field',
       placeholder: 'Ej. 1765432101',
@@ -69,6 +71,46 @@ this.formGroup = this.campoEntradaService.getFormGroup(this.campos)
   ngOnInit(): void {
   }
 
-  
+  autentificar(){
+
+    const botones: BotonInterface[] = [
+      {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
+    ]
+    if (this.formGroup.get('cedula')?.value== '1722334455' && this.formGroup.get('clave')?.value=='Clave123') {
+      this.rutaLink='/registro'
+    }else{
+      const notificacionOpciones: NotificacionInterface = {
+        tipo: TipoNotificacionEnum.ERROR,
+        titulo: 'Cédula o contraseña incorrecta',
+        contenido: 'Ups, hubo un error. Por favor, intenta ingresando nuevamente tu cédula y contraseña',
+        botones: botones
+      }
+      this.mostrarNotificacion(notificacionOpciones)
+    }
+  }
+
+  mostrarNotificacion(notificacionOpciones: NotificacionInterface){
+    // Apertura de notificacion
+    const referenciaDialogo = this.dialog.open(
+      NotificacionComponent,
+      {
+        disableClose: false,
+        width: '60%',
+        data: {
+          opciones: notificacionOpciones
+        }
+      }
+    )
+
+    // Cerrado de notificacion
+    referenciaDialogo.afterClosed().subscribe(
+      (datos) => {
+        if(datos!=undefined){
+          const accion = datos['accion']
+          console.log(accion)
+        }
+      }
+    )
+  }
 
 }
