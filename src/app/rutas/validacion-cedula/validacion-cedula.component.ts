@@ -20,7 +20,7 @@ export class ValidacionCedulaComponent implements OnInit {
       title: 'Cédula',
       nameField: 'campo',
       helpText: 'Ingrese su número de cédula',
-      screenReaderText: 'Screen Reader Field',
+      screenReaderText: 'Screen Reader cédula',
       placeholder: 'Ingrese su número de cédula',
       mensajes: [
         {
@@ -39,8 +39,8 @@ export class ValidacionCedulaComponent implements OnInit {
       type: TipoCampoEnum.DATE,
       title: 'Fecha',
       nameField: 'fecha',
-      helpText: 'Ingrese una fecha',
-      screenReaderText: 'Screen Reader Fecha',
+      helpText: 'Seleccione su fecha de nacimiento o ingrese manualmente',
+      screenReaderText: 'Screen Reader fecha',
       placeholder: 'DD/MM/YYYY',
       mensajes: [
         {

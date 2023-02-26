@@ -4,3 +4,8 @@
     width: auto;
     border: 1px solid black;
 }
+
+.container-fluid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
