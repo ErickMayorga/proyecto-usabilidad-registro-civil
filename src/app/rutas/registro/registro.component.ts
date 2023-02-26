@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { RouterLink } from '@angular/router';
 import { NotificacionComponent } from 'src/app/componentes/notificacion/notificacion.component';
 import { TipoBotonEnum } from 'src/app/constants/tipo-boton.enum';
 import { TipoCampoEnum } from 'src/app/constants/tipo-campo.enum';
@@ -57,7 +58,7 @@ export class RegistroComponent implements OnInit {
         deshabilitar: false
       },
       {
-        type: TipoCampoEnum.TEXT,
+        type: TipoCampoEnum.PASSWORD,
         title: 'Contraseña',
         nameField: 'contraseña',
         helpText: 'Ingrese una contraseña',
@@ -67,12 +68,17 @@ export class RegistroComponent implements OnInit {
           {
             tipo: TipoMensajeEnum.REQUERIDO,
             textoMensaje: 'Este campo es requerido',
+          },
+          {
+            tipo: TipoMensajeEnum.LONGITUD,
+            textoMensaje: 'La longitud de este campo es entre 5 y 8 caracteres',
+            opciones: {min: 5, max: 8}
           }
         ],
         deshabilitar: false
       },
       {
-        type: TipoCampoEnum.TEXT,
+        type: TipoCampoEnum.PASSWORD,
         title: 'Confirmación de contraseña',
         nameField: 'confirmación de contraseña',
         helpText: 'Ingrese nuevamente su contraseña',
@@ -82,6 +88,11 @@ export class RegistroComponent implements OnInit {
           {
             tipo: TipoMensajeEnum.REQUERIDO,
             textoMensaje: 'Este campo es requerido',
+          },
+          {
+            tipo: TipoMensajeEnum.LONGITUD,
+            textoMensaje: 'La longitud de este campo es entre 5 y 8 caracteres',
+            opciones: {min: 5, max: 8}
           }
         ],
         deshabilitar: false
@@ -147,14 +158,14 @@ export class RegistroComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    abrirError(){
+    abrirInformativo(){
       const botones: BotonInterface[] = [
         {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
       ]
       const notificacionOpciones: NotificacionInterface = {
-        tipo: TipoNotificacionEnum.ERROR,
-        titulo: 'Error',
-        contenido: 'Mensaje de error',
+        tipo: TipoNotificacionEnum.INFORMATIVO,
+        titulo: 'Mensaje de éxito',
+        contenido: 'Se ha registrado con éxito!',
         botones: botones
       }
       this.mostrarNotificacion(notificacionOpciones)
@@ -181,6 +192,7 @@ export class RegistroComponent implements OnInit {
             console.log(accion)
           }
         }
+        
       )
     }
 }
