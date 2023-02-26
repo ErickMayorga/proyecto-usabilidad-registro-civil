@@ -1,3 +1,45 @@
+.titulo{
+  color: #000000;
+  font-family: Helvetica;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-shadow: 2px 5px #DADADB;
+  text-align: center;
+  margin-top: 10px;
+}
+.iconoCampana{
+  font-size: 30px;
+}
+
+.cajaGrande{
+
+  weight: 80%;
+  height: 6%;
+
+  border: 2px solid #23497A;
+  border-radius:15px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  font-family: Helvetica;
+  font-size: 20px;
+  display: flex;
+}
+
+.cajaCampana{
+  weight: 25px;
+  height: 50px;
+  padding: 6px;
+  margin: 1px;
+}
+.cajaTextoNotificacion{
+  weight: 80px;
+  height: 50px;
+  padding: 6px;
+  margin: 1px;
+}
+
 .example-action-buttons {
   padding-bottom: 20px;
 }

@@ -65,6 +65,15 @@ export class VerificacionDatosPersonalesComponent implements OnInit {
     }
     this.mostrarNotificacion(notificacionOpciones)
   }
+
+  mostrarCampoInconsistencia(campo: CampoEntradaInterface){
+    if(campo.editable === undefined){
+      campo.editable = true
+    }else{
+      campo.editable = !campo.editable
+    }
+  }
+
   mostrarNotificacion(notificacionOpciones: NotificacionInterface){
     // Apertura de notificacion
     const referenciaDialogo = this.dialog.open(
