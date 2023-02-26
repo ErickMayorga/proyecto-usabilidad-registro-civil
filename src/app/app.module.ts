@@ -16,6 +16,16 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
 import {CommonModule} from "@angular/common";
 import { TestComponent } from './rutas/test/test.component';
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {environment} from "../environments/environment.prod";
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+  //return new TranslateHttpLoader(httpClient, '/assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -37,7 +47,15 @@ import { TestComponent } from './rutas/test/test.component';
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

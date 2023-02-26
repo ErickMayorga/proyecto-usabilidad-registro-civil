@@ -6,10 +6,11 @@
     </div>
   </div>
   <div class="col-3 d-flex justify-content-center">
-    <select class="form-select btn btn-secondary" aria-label="selección de idioma de la página">
-      <option selected>Español</option>
-      <option>Quichua</option>
-      <option>Shuar</option>
+    <select class="form-select btn btn-secondary" aria-label="selección de idioma de la página"
+            (change)="cambiarIdioma($event.target)">
+      <option value="es" selected>Español</option>
+      <option value="quz-EC">Quichua</option>
+      <option value="sh-EC">Shuar</option>
     </select>
   </div>
   <div class="col-3 d-flex justify-content-center">
