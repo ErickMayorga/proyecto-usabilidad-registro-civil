@@ -41,12 +41,12 @@ export class InicioSesionComponent implements OnInit {
       deshabilitar: false
     },
     {
-      type: TipoCampoEnum.TEXT,
-      title: 'Contraseña:',
-      nameField: 'campo',
-      helpText: 'Ingrese la contraseña',
-      screenReaderText: 'Screen Reader Field',
-      placeholder: '*********',
+      type: TipoCampoEnum.PASSWORD,
+      title: 'Contraseña',
+      nameField: 'clave',
+      helpText: 'Ingrese una contraseña',
+      screenReaderText: 'Screen Reader Password',
+      placeholder: '********',
       mensajes: [
         {
           tipo: TipoMensajeEnum.REQUERIDO,
@@ -54,12 +54,12 @@ export class InicioSesionComponent implements OnInit {
         },
         {
           tipo: TipoMensajeEnum.LONGITUD,
-          textoMensaje: 'La longitud de este campo esta entre 8 y 12 caracteres',
+          textoMensaje: 'La longitud de este campo es de entre 8 y 12 caracteres',
           opciones: {min: 8, max: 12}
         },
       ],
       deshabilitar: false
-    }
+    },
   ]
   constructor(private readonly campoEntradaService: CampoEntradaService,
     public dialog: MatDialog,) {
