@@ -90,6 +90,26 @@ export class TestComponent implements OnInit {
       ],
       deshabilitar: false
     },
+    {
+      type: TipoCampoEnum.PASSWORD,
+      title: 'Contraseña',
+      nameField: 'clave',
+      helpText: 'Ingrese una contraseña',
+      screenReaderText: 'Screen Reader Password',
+      placeholder: '*****',
+      mensajes: [
+        {
+          tipo: TipoMensajeEnum.REQUERIDO,
+          textoMensaje: 'Este campo es requerido',
+        },
+        {
+          tipo: TipoMensajeEnum.LONGITUD,
+          textoMensaje: 'La longitud de este campo es entre 5 y 8 caracteres',
+          opciones: {min: 5, max: 8}
+        },
+      ],
+      deshabilitar: false
+    },
   ]
 
   constructor(private readonly campoEntradaService: CampoEntradaService,

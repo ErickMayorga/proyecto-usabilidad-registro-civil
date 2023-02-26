@@ -4,5 +4,6 @@ export enum TipoCampoEnum {
   CHECKBOX = 'checkbox',
   NUMBER = 'number',
   DATE = 'date',
-  EMAIL = 'email'
+  EMAIL = 'email',
+  PASSWORD = 'password'
 }
