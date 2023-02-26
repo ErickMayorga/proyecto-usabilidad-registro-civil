@@ -48,10 +48,12 @@ export class CampoEntradaService {
     const hayErrorLongitud = formGroup.get(campo.nameField)?.hasError('minlength') ||
       formGroup.get(campo.nameField)?.hasError('maxlength')
 
+    /*
     console.log(`Ha sido tocado: ${haSidoTocado}\n`,
       `Contiene valor: ${contieneValor}\n`,
       `Es invalido: ${esInvalido}\n`,
       `Error de longitud: ${hayErrorLongitud}`)
+     */
 
     if(haSidoTocado && contieneValor && esInvalido && !hayErrorLongitud){
       const mensajeFiltrado = campo.mensajes.find(

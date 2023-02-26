@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-barra-menu',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./barra-menu.component.scss']
 })
 export class BarraMenuComponent implements OnInit {
+
+  @Input() nombreUsuario!: string
 
   constructor() { }
 

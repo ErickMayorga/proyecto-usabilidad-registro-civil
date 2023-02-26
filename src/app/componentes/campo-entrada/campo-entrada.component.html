@@ -13,20 +13,48 @@
 </ng-container>
 
 <ng-template #checkbox>
-
+  <div [formGroup]="formGroup" class="form-group">
+    <label [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'mensaje-error' : ''" class="d-flex align-items-center">
+      <input name="{{campoOpciones.nameField}}"
+             class="filled-in"
+             checked="checked"
+             [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'input-error' : ''"
+             [attr.aria-label]="campoOpciones.screenReaderText"
+             [formControlName]="campoOpciones.nameField"
+             type="checkbox">
+      <span>{{campoOpciones.title}}</span>
+    </label>
+    <span class="form-text"
+          [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'mensaje-error' : ''">
+      {{obtenerMensajeAyuda(campoOpciones, formGroup).mensaje}}
+    </span>
+  </div>
 </ng-template>
 
 <ng-template #select>
-
+  <div [formGroup]="formGroup" class="form-group">
+    <label [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'mensaje-error' : ''">
+      {{campoOpciones.title}}
+    </label>
+    <select class="form-select"
+            [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'input-error' : ''"
+            [attr.aria-label]="campoOpciones.screenReaderText"
+            [formControlName]="campoOpciones.nameField">
+      <option *ngFor="let option of campoOpciones.opciones" value="{{option.valor}}">{{option.valor}}</option>
+    </select>
+    <span class="form-text"
+          [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'mensaje-error' : ''">
+      {{obtenerMensajeAyuda(campoOpciones, formGroup).mensaje}}
+    </span>
+  </div>
 </ng-template>
 
 <ng-template #generic>
   <div [formGroup]="formGroup" class="form-group">
-    <label for="{{campoOpciones.nameField}}"
-           [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'mensaje-error' : ''">
+    <label [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'mensaje-error' : ''">
       {{campoOpciones.title}}
     </label>
-    <input id="{{campoOpciones.nameField}}"
+    <input name="{{campoOpciones.nameField}}"
            class="form-control"
            [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'input-error' : ''"
            [attr.aria-label]="campoOpciones.screenReaderText"
