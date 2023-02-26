@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { RouterLink, RouterStateSnapshot } from '@angular/router';
+import {Router, RouterLink, RouterStateSnapshot} from '@angular/router';
 import { NotificacionComponent } from 'src/app/componentes/notificacion/notificacion.component';
 import { TipoBotonEnum } from 'src/app/constants/tipo-boton.enum';
 import { TipoCampoEnum } from 'src/app/constants/tipo-campo.enum';
@@ -18,7 +18,7 @@ import { CampoEntradaService } from 'src/app/servicios/campo-entrada/campo-entra
   styleUrls: ['./inicio-sesion.component.scss']
 })
 export class InicioSesionComponent implements OnInit {
-  rutaLink='/inicioSesion'
+
   formGroup!: FormGroup
   tipoNotificacion = TipoNotificacionEnum
   campos: CampoEntradaInterface[] = [
@@ -64,7 +64,8 @@ export class InicioSesionComponent implements OnInit {
     },
   ]
   constructor(private readonly campoEntradaService: CampoEntradaService,
-    public dialog: MatDialog,) {
+              public dialog: MatDialog,
+              private readonly router: Router,) {
 this.formGroup = this.campoEntradaService.getFormGroup(this.campos)
 }
 
@@ -72,12 +73,12 @@ this.formGroup = this.campoEntradaService.getFormGroup(this.campos)
   }
 
   autentificar(){
-
     const botones: BotonInterface[] = [
       {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
     ]
+
     if (this.formGroup.get('cedula')?.value== '1722334455' && this.formGroup.get('clave')?.value=='Clave123') {
-      this.rutaLink='/registro'
+      this.router.navigateByUrl('/verificacion-datos-personales')
     }else{
       const notificacionOpciones: NotificacionInterface = {
         tipo: TipoNotificacionEnum.ERROR,
