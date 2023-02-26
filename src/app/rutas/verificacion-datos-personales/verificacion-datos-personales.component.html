@@ -14,37 +14,49 @@
   </div>
 </div>
 
-<div class="example-action-buttons">
-  <button mat-button (click)="accordion.openAll()">Expand All</button>
-  <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+<div class="comboboxInf">
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel class="cajaExpansionInf">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2 class="subtitulos"> INFORMACIÓN BÁSICA </h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+
+      <div *ngFor="let campo of campos">
+        <mat-form-field appearance="fill">
+          <mat-label> <app-campo-entrada
+            [formGroup]="formGroup"
+            [campoOpciones]="campo">
+          </app-campo-entrada> </mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+
+      
+      <h2> Sexo: </h2>
+      <mat-form-field appearance="fill">
+        <mat-label>(Hombre/Mujer)</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+      <h2> Fecha de Nacimiento: </h2>
+      <mat-form-field appearance="fill">
+        <mat-label>(dd/mm/aaaa)</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+      <h2> Estado Civil: </h2>
+      <mat-form-field appearance="fill">
+        <mat-label>(dd/mm/aaaa)</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>
 
-<mat-accordion class="example-headers-align" multi>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <h1> INFORMACIÓN BÁSICA </h1>
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-
-    <h1> Nombre: </h1>
-    <mat-form-field appearance="fill">
-      <mat-label>(Nombre 1 Nombre 2 Apellido 1 Apellido2)</mat-label>
-      <input matInput>
-    </mat-form-field>
-
-    <h1> Sexo: </h1>
-    <mat-form-field appearance="fill">
-      <mat-label>(Hombre/Mujer)</mat-label>
-      <input matInput>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Age</mat-label>
-      <input matInput type="number" min="1">
-    </mat-form-field>
-  </mat-expansion-panel>
-</mat-accordion>
 
 
 

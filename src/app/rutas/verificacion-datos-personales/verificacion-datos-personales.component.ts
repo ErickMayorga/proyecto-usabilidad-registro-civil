@@ -24,9 +24,9 @@ export class VerificacionDatosPersonalesComponent implements OnInit {
   campos: CampoEntradaInterface[] = [
     {
       type: TipoCampoEnum.TEXT,
-      title: 'Campo',
+      title: 'Nombre',
       nameField: 'campo',
-      helpText: 'Help text',
+      helpText: 'Ingrese un valor de texto',
       screenReaderText: 'Screen Reader Field',
       placeholder: 'Placeholder',
       mensajes: [
@@ -41,7 +41,56 @@ export class VerificacionDatosPersonalesComponent implements OnInit {
         },
       ],
       deshabilitar: false
-    }
+    },
+    {
+      type: TipoCampoEnum.CHECKBOX,
+      title: 'Checkbox field',
+      nameField: 'checkField',
+      helpText: ' ',
+      screenReaderText: 'Screen Reader Checkbox',
+      mensajes: [
+        {
+          tipo: TipoMensajeEnum.REQUERIDO,
+          textoMensaje: 'Este campo es requerido',
+        },
+      ],
+      deshabilitar: false
+    },
+    {
+      type: TipoCampoEnum.SELECT,
+      title: 'Select field',
+      nameField: 'selectField',
+      helpText: 'Seleccione un valor',
+      screenReaderText: 'Screen Reader Select',
+      mensajes: [
+        {
+          tipo: TipoMensajeEnum.REQUERIDO,
+          textoMensaje: 'Este campo es requerido',
+        },
+      ],
+      deshabilitar: false,
+      opciones: [
+        {clave: "1", valor: "Opcion 1"},
+        {clave: "2", valor: "Opcion 2"},
+        {clave: "3", valor: "Opcion 3"},
+        {clave: "4", valor: "Opcion 4"},
+      ]
+    },
+    {
+      type: TipoCampoEnum.DATE,
+      title: 'Fecha',
+      nameField: 'fecha',
+      helpText: 'Ingrese una fecha',
+      screenReaderText: 'Screen Reader Fecha',
+      placeholder: 'DD/MM/YYYY',
+      mensajes: [
+        {
+          tipo: TipoMensajeEnum.REQUERIDO,
+          textoMensaje: 'Este campo es requerido',
+        },
+      ],
+      deshabilitar: false
+    },
   ]
   @ViewChild(MatAccordion) accordion!: MatAccordion;
   constructor(private readonly campoEntradaService: CampoEntradaService,
