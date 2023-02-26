@@ -17,41 +17,45 @@
 <div class="comboboxInf">
   <mat-accordion class="example-headers-align" multi>
     <mat-expansion-panel class="cajaExpansionInf">
-      <mat-expansion-panel-header>
+      <mat-expansion-panel-header [attr.aria-label]="'sdasdas'">
         <mat-panel-title>
-          <h2 class="subtitulos"> INFORMACIÓN BÁSICA </h2>
+          <h2 class="subtitulos" aria-label="Informacion basica"> INFORMACIÓN BÁSICA </h2>
         </mat-panel-title>
       </mat-expansion-panel-header>
 
 
       <div *ngFor="let campo of campos">
-        <mat-form-field appearance="fill">
-          <mat-label> <app-campo-entrada
+        <div class="row">
+          <!-- CAMPO -->
+          <app-campo-entrada class="col-11"
             [formGroup]="formGroup"
             [campoOpciones]="campo">
-          </app-campo-entrada> </mat-label>
-          <input matInput>
-        </mat-form-field>
+          </app-campo-entrada>
+          <!-- CAMPANA -->
+          <div class="col-1 d-flex align-items-center">
+            <button name="testInformativo" aria-describedby="Probar informativo"
+                    class="btn btn-info d-flex align-items-center"
+                    (click)="mostrarCampoInconsistencia(campo)">
+              <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
+            </button>
+          </div>
+        </div>
+        <!-- CAMPO EDITABLE -->
+        <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
+          <app-campo-entrada class="col-11"
+            [formGroup]="formGroup"
+            [campoOpciones]="campo">
+          </app-campo-entrada>
+        </div>
+        <div *ngIf="campo.editable && campo.title === 'Lugar'" class="row">
+          <div *ngFor="let campoLugar of camposLugar">
+            <app-campo-entrada class="col-11"
+               [formGroup]="formGroup"
+               [campoOpciones]="campoLugar">
+            </app-campo-entrada>
+          </div>
+        </div>
       </div>
-
-      
-      <h2> Sexo: </h2>
-      <mat-form-field appearance="fill">
-        <mat-label>(Hombre/Mujer)</mat-label>
-        <input matInput>
-      </mat-form-field>
-
-      <h2> Fecha de Nacimiento: </h2>
-      <mat-form-field appearance="fill">
-        <mat-label>(dd/mm/aaaa)</mat-label>
-        <input matInput>
-      </mat-form-field>
-
-      <h2> Estado Civil: </h2>
-      <mat-form-field appearance="fill">
-        <mat-label>(dd/mm/aaaa)</mat-label>
-        <input matInput>
-      </mat-form-field>
 
     </mat-expansion-panel>
   </mat-accordion>

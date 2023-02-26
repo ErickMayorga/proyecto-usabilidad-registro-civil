@@ -11,6 +11,7 @@ import {FormGroup} from "@angular/forms";
 import {CampoEntradaInterface} from "../../interfaces/campo-entrada.interface";
 import {TipoCampoEnum} from "../../constants/tipo-campo.enum";
 import {TipoMensajeEnum} from "../../constants/tipo-mensaje.enum";
+import {camposLugar} from "./lugar.const";
 
 @Component({
   selector: 'app-verificacion-datos-personales',
@@ -27,6 +28,26 @@ export class VerificacionDatosPersonalesComponent implements OnInit {
       title: 'Nombre',
       nameField: 'campo',
       helpText: 'Ingrese un valor de texto',
+      screenReaderText: 'Screen Reader Field',
+      placeholder: 'Placeholder',
+      mensajes: [
+        {
+          tipo: TipoMensajeEnum.REQUERIDO,
+          textoMensaje: 'Este campo es requerido',
+        },
+        {
+          tipo: TipoMensajeEnum.LONGITUD,
+          textoMensaje: 'La longitud de este campo es entre 5 y 8 caracteres',
+          opciones: {min: 5, max: 8}
+        },
+      ],
+      deshabilitar: false
+    },
+    {
+      type: TipoCampoEnum.TEXT,
+      title: 'Lugar',
+      nameField: 'lugar',
+      helpText: 'Ingrese un lugar',
       screenReaderText: 'Screen Reader Field',
       placeholder: 'Placeholder',
       mensajes: [
@@ -92,9 +113,13 @@ export class VerificacionDatosPersonalesComponent implements OnInit {
       deshabilitar: false
     },
   ]
+
+  camposLugar = camposLugar
+
   @ViewChild(MatAccordion) accordion!: MatAccordion;
   constructor(private readonly campoEntradaService: CampoEntradaService,
               public dialog: MatDialog,) {
+    this.campos = this.campos.concat(camposLugar)
     this.formGroup = this.campoEntradaService.getFormGroup(this.campos)
   }
 
