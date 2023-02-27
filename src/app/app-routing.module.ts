@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ActualizarPasswordComponent } from './rutas/actualizar-password/actualizar-password.component';
+import { CorreoConfirmacionComponent } from './rutas/correo-confirmacion/correo-confirmacion.component';
 import { InicioSesionComponent } from './rutas/inicio-sesion/inicio-sesion.component';
 import {RecuperarPasswordComponent} from "./rutas/recuperar-password/recuperar-password.component";
 import { RegistroComponent } from './rutas/registro/registro.component';
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'verificacion-datos-personales', component: VerificacionDatosPersonalesComponent },
   { path: 'test', component: TestComponent },
   { path: '', redirectTo: '/inicio-sesion', pathMatch: 'full' },
+  { path: 'actualizar-password', component: ActualizarPasswordComponent},
+  { path: 'correo-confirmacion', component: CorreoConfirmacionComponent },
   //{ path: '**', component: InicioSesionComponent }
 ];
 

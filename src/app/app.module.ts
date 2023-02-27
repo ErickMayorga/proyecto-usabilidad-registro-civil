@@ -22,6 +22,8 @@ import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {ValidacionCedulaComponent} from "./rutas/validacion-cedula/validacion-cedula.component";
+import { ActualizarPasswordComponent } from './rutas/actualizar-password/actualizar-password.component';
+import { CorreoConfirmacionComponent } from './rutas/correo-confirmacion/correo-confirmacion.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import {ValidacionCedulaComponent} from "./rutas/validacion-cedula/validacion-ce
     VerificacionDatosPersonalesComponent,
     ValidacionCedulaComponent,
     RegistroComponent,
+    ActualizarPasswordComponent,
+    CorreoConfirmacionComponent,
   ],
   imports: [
     BrowserModule,
