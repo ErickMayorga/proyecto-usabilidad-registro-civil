@@ -268,6 +268,7 @@ export class RegistroComponent implements OnInit {
       this.router.navigateByUrl('/registro');
     }else if(this.formGroup.get('contraseña')?.value != 
       this.formGroup.get('confirmación de contraseña')?.value ){
+        this.abrirError4();
     }
     else{
         this.abrirInformativo();
