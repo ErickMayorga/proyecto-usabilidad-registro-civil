@@ -16,6 +16,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
 import {CommonModule} from "@angular/common";
 import { TestComponent } from './rutas/test/test.component';
+import { ActualizarPasswordComponent } from './rutas/actualizar-password/actualizar-password.component';
+import { CorreoConfirmacionComponent } from './rutas/correo-confirmacion/correo-confirmacion.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { TestComponent } from './rutas/test/test.component';
     BarraMenuComponent,
     NotificacionComponent,
     CampoEntradaComponent,
-    TestComponent
+    TestComponent,
+    ActualizarPasswordComponent,
+    CorreoConfirmacionComponent
   ],
   imports: [
     BrowserModule,
