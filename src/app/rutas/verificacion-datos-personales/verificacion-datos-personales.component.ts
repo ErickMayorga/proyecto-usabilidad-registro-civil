@@ -61,17 +61,19 @@ export class VerificacionDatosPersonalesComponent implements OnInit {
   //CAMPOS DE LUGAR
   camposLugar = camposLugar
 
+  // UTIL
+  camposGeneral: CampoEntradaInterface[] = []
+
   @ViewChild(MatAccordion) accordion!: MatAccordion;
   constructor(private readonly campoEntradaService: CampoEntradaService,
               public dialog: MatDialog,
               private readonly router: Router,) {
-    let camposGeneral: CampoEntradaInterface[] = []
-    camposGeneral = camposGeneral.concat(this.camposInfBasica)
-    camposGeneral = camposGeneral.concat(this.camposInfAdicional)
-    camposGeneral = camposGeneral.concat(this.camposInfNacimiento)
-    camposGeneral = camposGeneral.concat(this.camposInfMatrimonio)
-    camposGeneral = camposGeneral.concat(this.campoCheckNotificacion)
-    this.formGroup = this.campoEntradaService.getFormGroup(camposGeneral)
+    this.camposGeneral = this.camposGeneral.concat(this.camposInfBasica)
+    this.camposGeneral = this.camposGeneral.concat(this.camposInfAdicional)
+    this.camposGeneral = this.camposGeneral.concat(this.camposInfNacimiento)
+    this.camposGeneral = this.camposGeneral.concat(this.camposInfMatrimonio)
+    this.camposGeneral = this.camposGeneral.concat(this.campoCheckNotificacion)
+    this.formGroup = this.campoEntradaService.getFormGroup(this.camposGeneral)
   }
 
   ngOnInit(): void {
@@ -152,5 +154,28 @@ export class VerificacionDatosPersonalesComponent implements OnInit {
         }
       }
     )
+  }
+
+  clonarCampoEditable(campo: CampoEntradaInterface){
+    const campoEditable: CampoEntradaInterface = {
+      type: campo.type,
+      title: '(Nuevo) ' + campo.title,
+      nameField: campo.nameField + 'Edit',
+      helpText: campo.helpText,
+      screenReaderText: campo.screenReaderText + ' Nuevo',
+      placeholder: campo.placeholder,
+      mensajes: campo.mensajes,
+      deshabilitar: campo.deshabilitar,
+      opciones: campo.opciones
+    }
+
+    const resultado = this.camposGeneral.find(
+      (campoGeneral) => campoGeneral.nameField === campo.nameField + 'Edit'
+    )
+    if(!resultado){
+      this.camposGeneral.push(campoEditable)
+    }
+    this.formGroup = this.campoEntradaService.getFormGroup(this.camposGeneral)
+    return campoEditable
   }
 }

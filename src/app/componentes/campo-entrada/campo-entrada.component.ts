@@ -12,6 +12,7 @@ export class CampoEntradaComponent implements OnInit {
 
   @Input() formGroup!: FormGroup
   @Input() campoOpciones!: CampoEntradaInterface
+  @Input() color: string = ''
 
   constructor(private readonly campoEntradaService: CampoEntradaService) {
   }

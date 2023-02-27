@@ -6,7 +6,7 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Padre: ',
-    nameField: 'campo',
+    nameField: 'padre',
     helpText: 'Ingrese solo letras (Nombre completo)',
     screenReaderText: 'Ingrese el nombre completo de su padre',
     placeholder: 'Milton Stalin Rosero Cadena',
@@ -27,7 +27,7 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Madre: ',
-    nameField: 'campo',
+    nameField: 'madre',
     helpText: 'Ingrese solo letras (Nombre completo)',
     screenReaderText: 'Ingrese el nombre completo de su madre',
     placeholder: 'Jenny Tatiana Peñaherrera Tumipamba',
@@ -48,7 +48,7 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Conyugue: ',
-    nameField: 'campo',
+    nameField: 'conyugue',
     helpText: 'Ingrese solo letras (Nombre completo)',
     screenReaderText: 'Ingrese el nombre completo de su conyuge (si tuviera)',
     placeholder: '...',
@@ -69,7 +69,7 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Nro.Domicilio: ',
-    nameField: 'campo',
+    nameField: 'domicilio',
     helpText: 'Ingrese su número de domicilio (ej. OE8-177)',
     screenReaderText: 'Ingrese su número de domicilio (ej. OE8-177)',
     placeholder: 'OE8-177',
@@ -90,7 +90,7 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.SELECT,
     title: 'Provincia:',
-    nameField: 'provincia',
+    nameField: 'provinciaAdicional',
     helpText: 'Seleccione una provincia',
     screenReaderText: 'Seleccione una provincia',
     placeholder: 'Pichincha',
@@ -132,7 +132,7 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.SELECT,
     title: 'Canton:',
-    nameField: 'canton',
+    nameField: 'cantonAdicional',
     helpText: 'Seleccione un canton',
     screenReaderText: 'Seleccione un canton',
     placeholder: 'Quito',
@@ -158,7 +158,7 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.SELECT,
     title: 'Parroquia:',
-    nameField: 'parroquia',
+    nameField: 'parroquiaAdicional',
     helpText: 'Seleccione una parroquia',
     screenReaderText: 'Seleccione una parroquia',
     placeholder: 'Belisario Quevedo',

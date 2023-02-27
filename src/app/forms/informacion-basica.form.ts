@@ -6,7 +6,7 @@ export const informacionBasicaForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Nombre: ',
-    nameField: 'campo',
+    nameField: 'nombre',
     helpText: 'Ingrese solo letras (Nombre completo)',
     screenReaderText: 'Ingrese su nombre completo',
     placeholder: 'Ariel Thomás Rosero Peñaherrera',
@@ -23,7 +23,6 @@ export const informacionBasicaForm: CampoEntradaInterface[] = [
     ],
     deshabilitar: false
   },
-
   {
     type: TipoCampoEnum.SELECT,
     title: 'Sexo:',

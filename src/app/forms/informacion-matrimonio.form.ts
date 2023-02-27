@@ -6,7 +6,7 @@ export const informacionMatrimonioForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Tomo: ',
-    nameField: 'tomo',
+    nameField: 'tomoMatrimonio',
     helpText: 'Ingrese solo números)',
     screenReaderText: 'Ingrese el número de tomo de su acta de matrimonio',
     placeholder: 'Ingreso solo números',
@@ -27,7 +27,7 @@ export const informacionMatrimonioForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Clase: ',
-    nameField: 'clase',
+    nameField: 'claseMatrimonio',
     helpText: 'Ingrese solo números',
     screenReaderText: 'Ingrese la clase de su acta de matrimonio',
     placeholder: '...',
@@ -48,7 +48,7 @@ export const informacionMatrimonioForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Pagina: ',
-    nameField: 'pagina',
+    nameField: 'paginaMatrimonio',
     helpText: 'Ingrese solo números',
     screenReaderText: 'Ingrese la página de su acta de matrimonio',
     placeholder: '...',
@@ -69,7 +69,7 @@ export const informacionMatrimonioForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Acta: ',
-    nameField: 'acta',
+    nameField: 'actaMatrimonio',
     helpText: 'Ingrese solo números',
     screenReaderText: 'Ingrese el número de su acta de matrimonio',
     placeholder: 'Ingrese solo números',
@@ -90,7 +90,7 @@ export const informacionMatrimonioForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Lugar',
-    nameField: 'lugar',
+    nameField: 'lugarMatrimonio',
     helpText: 'Ingrese el lugar (Provincia, Ciudad, Parroquia) de su nacimiento',
     screenReaderText: "Ingrese el lugar (Provincia, Ciudad, Parroquia) de su nacimiento",
     placeholder: 'Prichincha, Quito, Belisario Quevedo',

@@ -6,7 +6,7 @@ export const informacionNacimientoForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Tomo: ',
-    nameField: 'tomo',
+    nameField: 'tomoNacimiento',
     helpText: 'Ingrese solo números)',
     screenReaderText: 'Ingrese el número de tomo de su acta de nacimiento',
     placeholder: 'Ingreso solo números',
@@ -27,7 +27,7 @@ export const informacionNacimientoForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Clase: ',
-    nameField: 'clase',
+    nameField: 'claseNacimiento',
     helpText: 'Ingrese solo números',
     screenReaderText: 'Ingrese la clase de su acta de nacimiento',
     placeholder: '...',
@@ -48,7 +48,7 @@ export const informacionNacimientoForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Pagina: ',
-    nameField: 'pagina',
+    nameField: 'paginaNacimiento',
     helpText: 'Ingrese solo números',
     screenReaderText: 'Ingrese la página de su acta de nacimiento',
     placeholder: '...',
@@ -69,7 +69,7 @@ export const informacionNacimientoForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Acta: ',
-    nameField: 'acta',
+    nameField: 'actaNacimiento',
     helpText: 'Ingrese solo números',
     screenReaderText: 'Ingrese el número de su acta de nacimiento',
     placeholder: 'Ingrese solo números',
@@ -106,7 +106,7 @@ export const informacionNacimientoForm: CampoEntradaInterface[] = [
   {
     type: TipoCampoEnum.TEXT,
     title: 'Lugar',
-    nameField: 'lugar',
+    nameField: 'lugarNacimiento',
     helpText: 'Ingrese el lugar (Provincia, Ciudad, Parroquia) de su nacimiento',
     screenReaderText: "Ingrese el lugar (Provincia, Ciudad, Parroquia) de su nacimiento",
     placeholder: 'Prichincha, Quito, Belisario Quevedo',
