@@ -1,13 +1,12 @@
 <app-barra-menu></app-barra-menu>
 <br>
 <h1 class="text-center px-2">Validación de cédula</h1>
-<div class="container caja">
-  <div class="row px-3 py-2" *ngFor="let campo of campos">
+<div class="container caja d-flex justify-content-center">
+  <div class="col-6 mb-2" *ngFor="let campo of campos">
           <app-campo-entrada
-          [formGroup]="formGroup" 
-          [campoOpciones]="campo" >
+            [formGroup]="formGroup"
+            [campoOpciones]="campo">
           </app-campo-entrada>
-         
   </div>
 </div>
 <div class="container">
@@ -16,6 +15,5 @@
     </div>
 </div>
 
-  
 
-  
+

@@ -100,7 +100,7 @@ abrirError(){
             }
           }
         )
-    
+
         // Cerrado de notificacion
         referenciaDialogo.afterClosed().subscribe(
           (datos) => {
@@ -111,7 +111,7 @@ abrirError(){
           }
         )
       }
-  
+
    validarCedula(){
     if(this.formGroup.get('cédula')?.value == ""){
         this.abrirError();
@@ -124,11 +124,12 @@ abrirError(){
       this.router.navigateByUrl('/validacion-cedula');
     }
     else{
-        this.router.navigateByUrl('/registro');
+      localStorage.setItem('cedulaValidada', this.formGroup.get('cédula')?.value)
+      this.router.navigateByUrl('/registro');
     }
   }
 
   ngOnInit(): void {
-    
+
   }
 }
