@@ -36,14 +36,14 @@ export class RegistroComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    abrirInformativo(){
+    abrirExito(){
       const botones: BotonInterface[] = [
         {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
       ]
       const notificacionOpciones: NotificacionInterface = {
-        tipo: TipoNotificacionEnum.INFORMATIVO,
-        titulo: 'Mensaje de éxito',
-        contenido: 'Se ha registrado con éxito!',
+        tipo: TipoNotificacionEnum.EXITO,
+        titulo: 'Registro Exitoso',
+        contenido: 'Su nueva cuenta ha sido registrada con éxito!',
         botones: botones
       }
       this.mostrarNotificacion(notificacionOpciones)
@@ -75,73 +75,27 @@ export class RegistroComponent implements OnInit {
     }
 
     //mensajes de validación
-    abrirError(){
+    abrirError(titulo: string, mensaje: string){
       const botones: BotonInterface[] = [
         {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
       ]
       const notificacionOpciones: NotificacionInterface = {
         tipo: TipoNotificacionEnum.ERROR,
-        titulo: 'Mensaje de error',
-        contenido: 'Debe llenar este campo!',
+        titulo: titulo,
+        contenido: mensaje,
         botones: botones
       }
         this.mostrarNotificacion(notificacionOpciones)
-      }
+    }
 
-      abrirError2(){
-        const botones: BotonInterface[] = [
-          {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
-        ]
-        const notificacionOpciones: NotificacionInterface = {
-          tipo: TipoNotificacionEnum.ERROR,
-          titulo: 'Mensaje de error',
-          contenido: 'Usted ya esta registrado!',
-          botones: botones
-        }
-          this.mostrarNotificacion(notificacionOpciones)
-        }
-
-        abrirError3(){
-          const botones: BotonInterface[] = [
-            {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
-          ]
-          const notificacionOpciones: NotificacionInterface = {
-            tipo: TipoNotificacionEnum.ERROR,
-            titulo: 'Mensaje de error',
-            contenido: 'Ingrese solo números en este campo!',
-            botones: botones
-          }
-            this.mostrarNotificacion(notificacionOpciones)
-          }
-
-          abrirError4(){
-            const botones: BotonInterface[] = [
-              {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
-            ]
-            const notificacionOpciones: NotificacionInterface = {
-              tipo: TipoNotificacionEnum.ERROR,
-              titulo: 'Mensaje de error',
-              contenido: 'Las contraseñas no coinciden!',
-              botones: botones
-            }
-              this.mostrarNotificacion(notificacionOpciones)
-            }
-
-   validarCampos(){
-    if(this.formGroup.get('cédula')?.value == ""){
-        this.abrirError();
-    }else if(this.formGroup.get('cedula')?.value == "1722334455"){
-      this.abrirError2();
-    }else if(isNaN(this.formGroup.get('cedula')?.value) ||
-    isNaN(this.formGroup.get('teléfono convencional')?.value) ||
-    isNaN(this.formGroup.get('teléfono celular')?.value)){
-      this.abrirError3();
-    }else if(this.formGroup.get('contraseña')?.value !=
-      this.formGroup.get('confirmación de contraseña')?.value ){
-        this.abrirError4();
+  validarCampos(){
+    if(isNaN(this.formGroup.get('teléfono convencional')?.value) || isNaN(this.formGroup.get('teléfono celular')?.value)){
+      this.abrirError('Error en ingreso de número telefónico', 'Ingrese solo números en este campo!');
+    }else if(this.formGroup.get('contraseña')?.value != this.formGroup.get('confirmación de contraseña')?.value ){
+      this.abrirError('Error de confirmación de contraseña', 'Las contraseñas no coinciden!');
     }else{
-        this.abrirInformativo();
-        this.router.navigateByUrl('/inicio-sesion');
+      this.abrirExito();
+      this.router.navigateByUrl('/inicio-sesion');
     }
   }
 }

@@ -1,210 +1,211 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
 <app-barra-menu nombreUsuario="Erick Mayorga"></app-barra-menu>
-<h1 class="titulo">REVISIÓN DE DATOS DE IDENTIDAD</h1>
+<main>
+  <h1 class="titulo">REVISIÓN DE DATOS DE IDENTIDAD</h1>
 
-<div class="cajaGrande">
-  <div class="cajaCampana">
-    <span class="material-symbols-outlined iconoCampana">notifications</span>
-  </div>
-
-  <div class="cajaTextoNotificacion col-11">
-    <p>Observe atentamente su información y si encuentra una inconsistencia marque el “Check”
-      para que su información sea modificada por un trabajor del Registro Civil.</p>
-  </div>
-</div>
-
-<div>
-  <mat-accordion class="example-headers-align" multi>
-    <mat-expansion-panel class="cajaExpansionInf">
-      <!--[attr.aria-label]="'sdasdas'"-->
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <h2 class="subtitulos" aria-label="Informacion basica"> INFORMACIÓN BÁSICA </h2>
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-
-
-      <div *ngFor="let campo of camposInfBasica">
-        <div class="row">
-          <!-- CAMPO -->
-          <app-campo-entrada class="col-11"
-            [formGroup]="formGroup"
-            [campoOpciones]="campo">
-          </app-campo-entrada>
-          <!-- CAMPANA -->
-          <div class="col-1 d-flex align-items-center">
-            <button name="testInformativo" aria-describedby="Probar informativo"
-                    class="btn btn-info d-flex align-items-center"
-                    (click)="mostrarCampoInconsistencia(campo)">
-              <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
-            </button>
-          </div>
-        </div>
-        <!-- CAMPO EDITABLE -->
-        <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
-          <app-campo-entrada class="col-11"
-            [formGroup]="formGroup"
-            [campoOpciones]="campo">
-          </app-campo-entrada>
-        </div>
-      </div>
-
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
-
-<div>
-  <mat-accordion class="example-headers-align" multi>
-    <mat-expansion-panel class="cajaExpansionInf">
-      <!--[attr.aria-label]="'sdasdas'"-->
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <h2 class="subtitulos" aria-label="Informacion adicional"> INFORMACIÓN ADICIONAL </h2>
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-
-
-      <div *ngFor="let campo of camposInfAdicional">
-        <div class="row">
-          <!-- CAMPO -->
-          <app-campo-entrada class="col-11"
-                             [formGroup]="formGroup"
-                             [campoOpciones]="campo">
-          </app-campo-entrada>
-          <!-- CAMPANA -->
-          <div class="col-1 d-flex align-items-center">
-            <button name="testInformativo" aria-describedby="Probar informativo"
-                    class="btn btn-info d-flex align-items-center"
-                    (click)="mostrarCampoInconsistencia(campo)">
-              <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
-            </button>
-          </div>
-        </div>
-        <!-- CAMPO EDITABLE -->
-        <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
-          <app-campo-entrada class="col-11"
-                             [formGroup]="formGroup"
-                             [campoOpciones]="campo">
-          </app-campo-entrada>
-        </div>
-      </div>
-
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
-
-<div>
-  <mat-accordion class="example-headers-align" multi>
-    <mat-expansion-panel class="cajaExpansionInf">
-      <!--[attr.aria-label]="'sdasdas'"-->
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <h2 class="subtitulos" aria-label="Informacion de Nacimiento"> INFORMACIÓN DE NACIMIENTO </h2>
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-
-
-      <div *ngFor="let campo of camposInfNacimiento">
-        <div class="row">
-          <!-- CAMPO -->
-          <app-campo-entrada class="col-11"
-                             [formGroup]="formGroup"
-                             [campoOpciones]="campo">
-          </app-campo-entrada>
-          <!-- CAMPANA -->
-          <div class="col-1 d-flex align-items-center">
-            <button name="testInformativo" aria-describedby="Probar informativo"
-                    class="btn btn-info d-flex align-items-center"
-                    (click)="mostrarCampoInconsistencia(campo)">
-              <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
-            </button>
-          </div>
-        </div>
-        <!-- CAMPO EDITABLE -->
-        <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
-          <app-campo-entrada class="col-11"
-                             [formGroup]="formGroup"
-                             [campoOpciones]="campo">
-          </app-campo-entrada>
-        </div>
-        <div *ngIf="campo.editable && campo.title === 'Lugar'" class="row">
-          <div *ngFor="let campoLugar of camposLugar">
-            <app-campo-entrada class="col-11"
-                               [formGroup]="formGroup"
-                               [campoOpciones]="campoLugar">
-            </app-campo-entrada>
-          </div>
-        </div>
-      </div>
-
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
-
-<div>
-  <mat-accordion class="example-headers-align" multi>
-    <mat-expansion-panel class="cajaExpansionInf">
-      <!--[attr.aria-label]="'sdasdas'"-->
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <h2 class="subtitulos" aria-label="Informacion de matrimonio"> INFORMACIÓN DE MATRIMONIO </h2>
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-
-
-      <div *ngFor="let campo of camposInfMatrimonio">
-        <div class="row">
-          <!-- CAMPO -->
-          <app-campo-entrada class="col-11"
-                             [formGroup]="formGroup"
-                             [campoOpciones]="campo">
-          </app-campo-entrada>
-          <!-- CAMPANA -->
-          <div class="col-1 d-flex align-items-center">
-            <button name="testInformativo" aria-describedby="Probar informativo"
-                    class="btn btn-info d-flex align-items-center"
-                    (click)="mostrarCampoInconsistencia(campo)">
-              <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
-            </button>
-          </div>
-        </div>
-        <!-- CAMPO EDITABLE -->
-        <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
-          <app-campo-entrada class="col-11"
-                             [formGroup]="formGroup"
-                             [campoOpciones]="campo">
-          </app-campo-entrada>
-        </div>
-        <div *ngIf="campo.editable && campo.title === 'Lugar'" class="row">
-          <div *ngFor="let campoLugar of camposLugar">
-            <app-campo-entrada class="col-11"
-                               [formGroup]="formGroup"
-                               [campoOpciones]="campoLugar">
-            </app-campo-entrada>
-          </div>
-        </div>
-      </div>
-
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
-
-<div class="cajaTextoGrande">
-  <div class="cajaGrandeTituloyCampana">
+  <div class="cajaGrande">
     <div class="cajaCampana">
-      <span class="material-symbols-outlined iconoCampana">notifications</span>
+      <mat-icon aria-hidden="false" aria-label="ícono informativo" class="iconoCampana">notifications</mat-icon>
     </div>
+
     <div class="cajaTextoNotificacion col-11">
-      <h2>TERMINOS Y CONDICIONES</h2>
+      <span class="ms-2 me-2">Observe atentamente su información y si encuentra una inconsistencia marque el “Check”
+        para que su información sea modificada por un trabajador del Registro Civil.</span>
     </div>
   </div>
 
-  <p class="p0"> Lea los términos y condiciones de uso, si está de acuerdo active la casilla y de
-    clic en Siguiente para que su caso sea atendido por un equipo especializado del Registro Civil.</p>
-  <p class="p0"> Términos y condiciones de uso:</p>
+  <div class="d-flex">
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel class="cajaExpansionInf">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h2 class="subtitulos" aria-label="Informacion basica"> INFORMACIÓN BÁSICA </h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
 
-    <div class="cajaTerminosLegales">
+
+        <div *ngFor="let campo of camposInfBasica">
+          <div class="d-flex flex-row">
+            <!-- CAMPO -->
+            <app-campo-entrada class="col-10"
+                               [formGroup]="formGroup"
+                               [campoOpciones]="campo">
+            </app-campo-entrada>
+            <!-- CAMPANA -->
+            <div class="col-1 d-flex align-items-center ms-3">
+              <button name="notificarInconsistencia" aria-label="Notificar inconsistencia"
+                      class="btn btn-info d-flex align-items-center"
+                      (click)="mostrarCampoInconsistencia(campo)">
+                <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
+              </button>
+            </div>
+          </div>
+          <!-- CAMPO EDITABLE -->
+          <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
+            <app-campo-entrada class="col-11"
+                               [formGroup]="formGroup"
+                               [campoOpciones]="campo">
+            </app-campo-entrada>
+          </div>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div class="d-flex">
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel class="cajaExpansionInf">
+        <!--[attr.aria-label]="'sdasdas'"-->
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h2 class="subtitulos" aria-label="Informacion adicional"> INFORMACIÓN ADICIONAL </h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+
+        <div *ngFor="let campo of camposInfAdicional">
+          <div class="d-flex flex-row">
+            <!-- CAMPO -->
+            <app-campo-entrada class="col-10"
+                               [formGroup]="formGroup"
+                               [campoOpciones]="campo">
+            </app-campo-entrada>
+            <!-- CAMPANA -->
+            <div class="col-1 d-flex align-items-center ms-3">
+              <button name="notificarInconsistencia" aria-label="Notificar inconsistencia"
+                      class="btn btn-info d-flex align-items-center"
+                      (click)="mostrarCampoInconsistencia(campo)">
+                <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
+              </button>
+            </div>
+          </div>
+          <!-- CAMPO EDITABLE -->
+          <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
+            <app-campo-entrada class="col-11"
+                               [formGroup]="formGroup"
+                               [campoOpciones]="campo">
+            </app-campo-entrada>
+          </div>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div class="d-flex">
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel class="cajaExpansionInf">
+        <!--[attr.aria-label]="'sdasdas'"-->
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h2 class="subtitulos" aria-label="Informacion de Nacimiento"> INFORMACIÓN DE NACIMIENTO </h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+
+        <div *ngFor="let campo of camposInfNacimiento">
+          <div class="d-flex flex-row">
+            <!-- CAMPO -->
+            <app-campo-entrada class="col-10"
+                               [formGroup]="formGroup"
+                               [campoOpciones]="campo">
+            </app-campo-entrada>
+            <!-- CAMPANA -->
+            <div class="col-1 d-flex align-items-center ms-3">
+              <button name="notificarInconsistencia" aria-label="Notificar inconsistencia"
+                      class="btn btn-info d-flex align-items-center"
+                      (click)="mostrarCampoInconsistencia(campo)">
+                <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
+              </button>
+            </div>
+          </div>
+          <!-- CAMPO EDITABLE -->
+          <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
+            <app-campo-entrada class="col-11"
+                               [formGroup]="formGroup"
+                               [campoOpciones]="campo">
+            </app-campo-entrada>
+          </div>
+          <div *ngIf="campo.editable && campo.title === 'Lugar'" class="row">
+            <div *ngFor="let campoLugar of camposLugar">
+              <app-campo-entrada class="col-11"
+                                 [formGroup]="formGroup"
+                                 [campoOpciones]="campoLugar">
+              </app-campo-entrada>
+            </div>
+          </div>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div class="d-flex">
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel class="cajaExpansionInf">
+        <!--[attr.aria-label]="'sdasdas'"-->
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h2 class="subtitulos" aria-label="Informacion de matrimonio"> INFORMACIÓN DE MATRIMONIO </h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+
+        <div *ngFor="let campo of camposInfMatrimonio">
+          <div class="d-flex flex-row">
+            <!-- CAMPO -->
+            <app-campo-entrada class="col-10"
+                               [formGroup]="formGroup"
+                               [campoOpciones]="campo">
+            </app-campo-entrada>
+            <!-- CAMPANA -->
+            <div class="col-1 d-flex align-items-center ms-3">
+              <button name="notificarInconsistencia" aria-label="Notificar inconsistencia"
+                      class="btn btn-info d-flex align-items-center"
+                      (click)="mostrarCampoInconsistencia(campo)">
+                <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
+              </button>
+            </div>
+          </div>
+          <!-- CAMPO EDITABLE -->
+          <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
+            <app-campo-entrada class="col-11"
+                               [formGroup]="formGroup"
+                               [campoOpciones]="campo">
+            </app-campo-entrada>
+          </div>
+          <div *ngIf="campo.editable && campo.title === 'Lugar'" class="row">
+            <div *ngFor="let campoLugar of camposLugar">
+              <app-campo-entrada class="col-11"
+                                 [formGroup]="formGroup"
+                                 [campoOpciones]="campoLugar">
+              </app-campo-entrada>
+            </div>
+          </div>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div class="cajaTextoGrande">
+    <div class="cajaGrandeTituloyCampana">
+      <div class="cajaCampana">
+        <mat-icon aria-hidden="false" aria-label="ícono informativo" class="iconoCampana">notifications</mat-icon>
+      </div>
+      <div class="cajaTextoNotificacion col-11">
+        <h2>TERMINOS Y CONDICIONES</h2>
+      </div>
+    </div>
+
+    <div class="ms-3 me-3">
+      <p> Lea los términos y condiciones de uso, si está de acuerdo active la casilla y de
+        clic en Siguiente para que su caso sea atendido por un equipo especializado del Registro Civil.</p>
+      <p> Términos y condiciones de uso:</p>
+    </div>
+
+
+    <div class="cajaTerminosLegales ps-3 pe-3">
       TÉRMINOS LEGALES DE USO DE LOS SERVICIOS WEB DE LA DIRECCIÓN GENERAL DE REGISTRO CIVIL, IDENTIFICACIÓN Y CEDULACIÓN<br>
       <br>&ensp;Aviso legal<br>
       Pedimos, antes de seguir, lea a conciencia y con atención los Términos Legales de Uso que a continuación se detallan.<br>
@@ -285,28 +286,26 @@
       República del Ecuador.<br>
     </div>
 
-  <div *ngFor="let campo of campoCheckNotificacion">
-    <div>
+    <div *ngFor="let campo of campoCheckNotificacion" class="ms-3">
       <!-- CAMPO -->
       <app-campo-entrada
-                         [formGroup]="formGroup"
-                         [campoOpciones]="campo">
+        [formGroup]="formGroup"
+        [campoOpciones]="campo">
       </app-campo-entrada>
     </div>
+
   </div>
 
-</div>
+  <div class="d-flex justify-content-center">
+    <button name="enviarInconsistencias" aria-label="Enviar inconsistencias"
+            class="btn boton btn-info d-flex align-items-center" (click)="abrirConfirmacion()">
+      Enviar inconsistencias
+    </button>
+    <button name="cerrarSesion" aria-label="Cerrar Sesión"
+            class="btn boton" (click)="abrirConfirmacionCerrarSesion()">
+      Cerrar Sesión
+    </button>
+  </div>
+</main>
 
-<div class="contenedorBotones">
-  <button class="btn1 align-items-center" name="testConfirmacion" aria-describedby="Probar confirmación"
-          (click)="abrirConfirmacion()">
-    <h2 class="subtitulos">ENVIAR INCONSISTENCIAS</h2>
-  </button>
-
-  <button class="btn1 align-items-center" name="testConfirmacion" aria-describedby="Probar confirmación"
-          (click)="abrirConfirmacionCerrarSesion()">
-    <h2 class="subtitulos">CERRAR SESIÓN</h2>
-  </button>
-
-</div>
 

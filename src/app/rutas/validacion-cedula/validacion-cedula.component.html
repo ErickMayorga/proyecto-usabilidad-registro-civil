@@ -1,19 +1,24 @@
 <app-barra-menu></app-barra-menu>
-<br>
-<h1 class="text-center px-2">Validación de cédula</h1>
-<div class="container caja d-flex justify-content-center">
-  <div class="col-6 mb-2" *ngFor="let campo of campos">
-          <app-campo-entrada
-            [formGroup]="formGroup"
-            [campoOpciones]="campo">
-          </app-campo-entrada>
-  </div>
-</div>
-<div class="container">
-    <div class="row d-flex justify-content-center">
-      <button class="btn boton" type="submit" (click)="validarCedula()">Validar</button>
+<main class="mt-3 mb-3">
+  <h1 class="text-center px-2">Validación de cédula</h1>
+  <div class="container caja d-flex justify-content-center">
+    <div class="col-6 mb-2" *ngFor="let campo of campos">
+      <app-campo-entrada
+        [formGroup]="formGroup"
+        [campoOpciones]="campo">
+      </app-campo-entrada>
     </div>
-</div>
+  </div>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <button name="validarCedula" aria-label="Validar número de cédula"
+              class="btn boton" type="submit" (click)="validarCedula()">
+        Validar
+      </button>
+    </div>
+  </div>
+</main>
+
 
 
 

@@ -84,12 +84,12 @@ export class VerificacionDatosPersonalesComponent implements OnInit {
     ]
     const notificacionOpciones: NotificacionInterface = {
       tipo: TipoNotificacionEnum.CONFIRMACION,
-      titulo: 'ADVERTENCIA',
+      titulo: 'Confirmación de inconsistencias',
       contenido: 'Las inconsistencias generadas se enviarán al servicio del Registro Civil para su corrección. ' +
                  '¿Está seguro de que la información ingresada es correcta?',
       botones: botones
     }
-    this.mostrarNotificacion(notificacionOpciones, '/verificacion-datos-personales')
+    this.mostrarNotificacion(notificacionOpciones, '/verificacion-datos-personales', true)
   }
 
   abrirConfirmacionCerrarSesion(){
@@ -99,11 +99,24 @@ export class VerificacionDatosPersonalesComponent implements OnInit {
     ]
     const notificacionOpciones: NotificacionInterface = {
       tipo: TipoNotificacionEnum.CONFIRMACION,
-      titulo: 'ADVERTENCIA',
+      titulo: 'Confirmación de cierre de sesión',
       contenido: '¿Está seguro de que quiere salir?',
       botones: botones
     }
-    this.mostrarNotificacion(notificacionOpciones, '/inicio-sesion')
+    this.mostrarNotificacion(notificacionOpciones, '/inicio-sesion', false)
+  }
+
+  abrirExito(){
+    const botones: BotonInterface[] = [
+      {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
+    ]
+    const notificacionOpciones: NotificacionInterface = {
+      tipo: TipoNotificacionEnum.EXITO,
+      titulo: 'Envío exitoso',
+      contenido: 'Felicidades! Se enviado su solicitud de incosistencias al servicio del Registro Civil con éxito. ',
+      botones: botones
+    }
+    this.mostrarNotificacion(notificacionOpciones, '/verificacion-datos-personales', false)
   }
 
   mostrarCampoInconsistencia(campo: CampoEntradaInterface){
@@ -114,7 +127,7 @@ export class VerificacionDatosPersonalesComponent implements OnInit {
     }
   }
 
-  mostrarNotificacion(notificacionOpciones: NotificacionInterface, redirectTo: string){
+  mostrarNotificacion(notificacionOpciones: NotificacionInterface, redirectTo: string, mostrarExito: boolean){
     // Apertura de notificacion
     const referenciaDialogo = this.dialog.open(
       NotificacionComponent,
@@ -131,7 +144,11 @@ export class VerificacionDatosPersonalesComponent implements OnInit {
     referenciaDialogo.afterClosed().subscribe(
       (datos) => {
         if(datos!=undefined && datos['accion'] === TipoBotonEnum.ACEPTAR){
-          this.router.navigateByUrl(redirectTo)
+          if(mostrarExito){
+            this.abrirExito()
+          }else{
+            this.router.navigateByUrl(redirectTo)
+          }
         }
       }
     )

@@ -1,23 +1,28 @@
 <!-- MENU -->
-<div class="d-flex flex-wrap menu-general">
-  <div class="col-6">
-    <div style="color: white" class="d-flex align-items-center">
-      <span *ngIf="nombreUsuario">{{nombreUsuario}}</span>
+<nav class="menu-general">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex align-items-center">
+      <div style="color: white">
+        <span *ngIf="nombreUsuario">{{nombreUsuario}}</span>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex align-items-center justify-content-end">
+      <div class="d-flex align-items-center me-2">
+        <label style="color: white;" class="me-2" for="idioma">Idioma: </label>
+        <select id="idioma" class="form-select btn btn-secondary" aria-label="selección de idioma de la página"
+                (change)="cambiarIdioma($event.target)">
+          <option value="es" selected>Español</option>
+          <option value="quz-EC">Quichua</option>
+          <option value="sh-EC">Shuar</option>
+        </select>
+      </div>
+      <div class="me-2" *ngIf="mostrarBotonInicio">
+        <button name="volverInicio" aria-label="Volver al inicio"
+                class="btn btn-secondary d-flex align-items-center" routerLink="/inicio-sesion">
+          <mat-icon aria-hidden="false" aria-label="ícono de casa">home</mat-icon>
+          <span>Volver al inicio</span>
+        </button>
+      </div>
     </div>
   </div>
-  <div class="col-3 d-flex justify-content-center">
-    <select class="form-select btn btn-secondary" aria-label="selección de idioma de la página"
-            (change)="cambiarIdioma($event.target)">
-      <option value="es" selected>Español</option>
-      <option value="quz-EC">Quichua</option>
-      <option value="sh-EC">Shuar</option>
-    </select>
-  </div>
-  <div class="col-3 d-flex justify-content-center">
-    <button name="volverInicio" aria-describedby="Volver al inicio"
-            class="btn btn-secondary d-flex align-items-center" routerLink="/inicio-sesion">
-      <mat-icon aria-hidden="false" aria-label="ícono de casa">home</mat-icon>
-      <span>Volver al inicio</span>
-    </button>
-  </div>
-</div>
+</nav>

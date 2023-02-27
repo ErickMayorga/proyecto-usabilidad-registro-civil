@@ -13,17 +13,20 @@
 </ng-container>
 
 <ng-template #checkbox>
-  <div [formGroup]="formGroup" class="form-group">
-    <label [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'mensaje-error' : ''" class="d-flex align-items-center">
-      <input name="{{campoOpciones.nameField}}"
-             class="filled-in"
-             checked="checked"
+  <div [formGroup]="formGroup" class="mb-3">
+    <div class="form-check">
+      <input [id]="campoOpciones.nameField"
+             name="{{campoOpciones.nameField}}"
+             class="form-check-input"
              [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'input-error' : ''"
              [attr.aria-label]="campoOpciones.screenReaderText"
              [formControlName]="campoOpciones.nameField"
              type="checkbox">
-      <span>{{campoOpciones.title}}</span>
-    </label>
+      <label [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'mensaje-error' : ''"
+             class="ms-3" [attr.for]="campoOpciones.nameField">
+        {{campoOpciones.title}}
+      </label>
+    </div>
     <span class="form-text"
           [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'mensaje-error' : ''">
       {{obtenerMensajeAyuda(campoOpciones, formGroup).mensaje}}
@@ -32,11 +35,12 @@
 </ng-template>
 
 <ng-template #select>
-  <div [formGroup]="formGroup" class="form-group">
-    <label [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'mensaje-error' : ''">
+  <div [formGroup]="formGroup" class="form-group mb-3">
+    <label [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'mensaje-error' : ''" [attr.for]="campoOpciones.nameField">
       {{campoOpciones.title}}
     </label>
-    <select class="form-select"
+    <select [id]="campoOpciones.nameField"
+            class="form-select"
             [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'input-error' : ''"
             [attr.aria-label]="campoOpciones.screenReaderText"
             [formControlName]="campoOpciones.nameField">
@@ -50,11 +54,12 @@
 </ng-template>
 
 <ng-template #generic>
-  <div [formGroup]="formGroup" class="form-group">
-    <label [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'mensaje-error' : ''">
+  <div [formGroup]="formGroup" class="form-group mb-3">
+    <label [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'mensaje-error' : ''" [attr.for]="campoOpciones.nameField">
       {{campoOpciones.title}}
     </label>
-    <input name="{{campoOpciones.nameField}}"
+    <input [id]="campoOpciones.nameField"
+          name="{{campoOpciones.nameField}}"
            class="form-control"
            [ngClass]="obtenerMensajeAyuda(campoOpciones, formGroup).error ? 'input-error' : ''"
            [attr.aria-label]="campoOpciones.screenReaderText"

@@ -165,6 +165,19 @@ export class TestComponent implements OnInit {
     this.mostrarNotificacion(notificacionOpciones)
   }
 
+  abrirExito(){
+    const botones: BotonInterface[] = [
+      {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
+    ]
+    const notificacionOpciones: NotificacionInterface = {
+      tipo: TipoNotificacionEnum.EXITO,
+      titulo: 'Acción exitosa',
+      contenido: 'Mensaje de éxito',
+      botones: botones
+    }
+    this.mostrarNotificacion(notificacionOpciones)
+  }
+
   mostrarNotificacion(notificacionOpciones: NotificacionInterface){
     // Apertura de notificacion
     const referenciaDialogo = this.dialog.open(

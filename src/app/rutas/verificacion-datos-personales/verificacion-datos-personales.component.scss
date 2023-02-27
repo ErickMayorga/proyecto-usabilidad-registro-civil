@@ -1,6 +1,5 @@
 .titulo{
   color: #000000;
-  font-family: Helvetica;
   font-size: 25px;
   text-transform: uppercase;
   font-weight: 600;
@@ -10,24 +9,20 @@
 }
 .subtitulos{
   color: #DADADB;
-  font-family: Helvetica;
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 600;
-  //text-shadow: 2px 5px #000000;
   text-align: left;
   margin: 5px;
 }
 
 .cajaGrande{
-  weight: 80%;
+  //weight: 80%;
 
   border: 2px solid #23497A;
   border-radius:15px;
   margin-left: 20px;
   margin-right: 20px;
-
-  font-family: Helvetica;
   font-size: 20px;
   display: flex;
 }
@@ -39,7 +34,7 @@
 }
 
 .cajaCampana{
-  weight: 20px;
+  //weight: 20px;
   height: 100%;
   padding: 3px;
   display: flex;
@@ -47,15 +42,12 @@
   margin-left: 10px;
 }
 .cajaTextoNotificacion{
-  weight: 80px;
-  height: 40px;
-  padding: 4px;
-  margin: 7px;
+  margin: 10px;
 }
 
 .example-headers-align{
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 20px;
+  width: 100%;
 }
 
 .example-action-buttons {
@@ -63,8 +55,6 @@
 }
 
 .cajaExpansionInf{
-  margin-left: 20px;
-  margin-right: 20px;
   background-color: #F9F9F8;
 }
 
@@ -90,19 +80,18 @@
 }
 
 .cajaTextoGrande{
-  weight: 80%;
+  //weight: 80%;
 
   border: 2px solid #23497A;
   border-radius:15px;
   margin-left: 20px;
   margin-right: 20px;
 
-  font-family: Helvetica;
   font-size: 20px;
 }
 
 .cajaGrandeTituloyCampana{
-  weight: 100%;
+  //weight: 100%;
   margin-left: 5px;
   margin-right: 50px;
   font-size: 20px;
@@ -123,10 +112,7 @@
   font-weight: 600;
   font-size: 20px;
   color:#333333;
-  padding-top:15px;
-  padding-bottom:15px;
-  padding-left:40px;
-  padding-right:40px;
+  padding: 15px 40px;
   background-color: #23497A;
   border-color: #d8d8d8;
   border-width: 3px;
@@ -137,3 +123,10 @@
   margin-right: 50px;
 }
 
+.boton{
+  background-color: #23497A;
+  color: white;
+  width: auto;
+  border: 1px solid black;
+  margin: 15px;
+}

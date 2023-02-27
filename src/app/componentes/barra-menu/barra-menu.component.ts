@@ -9,15 +9,17 @@ import {TraduccionService} from "../../servicios/traduccion/traduccion.service";
 export class BarraMenuComponent implements OnInit {
 
   @Input() nombreUsuario!: string
+  @Input() mostrarBotonInicio: boolean = true
 
-  constructor(public translateService: TraduccionService) { }
+  //constructor(public translateService: TraduccionService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   cambiarIdioma(idioma: any){
     const idiomaString = idioma.value
-    this.translateService.establecerLenguaje(idiomaString)
+    //this.translateService.establecerLenguaje(idiomaString)
   }
 
 }

@@ -8,6 +8,8 @@
                 *ngIf="notificacionOptions.tipo === tiposNotificacion.ERROR">cancel</mat-icon>
       <mat-icon aria-hidden="false" aria-label="ícono de confirmación" class="confirmacion"
                 *ngIf="notificacionOptions.tipo === tiposNotificacion.CONFIRMACION">warning</mat-icon>
+      <mat-icon aria-hidden="false" aria-label="ícono de éxito" class="exito"
+                *ngIf="notificacionOptions.tipo === tiposNotificacion.EXITO">check_circle</mat-icon>
     </div>
     <div class="d-flex align-items-center">
       <h2>{{notificacionOptions.titulo}}</h2>
