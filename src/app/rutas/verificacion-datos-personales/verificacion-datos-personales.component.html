@@ -1,0 +1,312 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<app-barra-menu nombreUsuario="Erick Mayorga"></app-barra-menu>
+<h1 class="titulo">REVISIÓN DE DATOS DE IDENTIDAD</h1>
+
+<div class="cajaGrande">
+  <div class="cajaCampana">
+    <span class="material-symbols-outlined iconoCampana">notifications</span>
+  </div>
+
+  <div class="cajaTextoNotificacion col-11">
+    <p>Observe atentamente su información y si encuentra una inconsistencia marque el “Check”
+      para que su información sea modificada por un trabajor del Registro Civil.</p>
+  </div>
+</div>
+
+<div>
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel class="cajaExpansionInf">
+      <!--[attr.aria-label]="'sdasdas'"-->
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2 class="subtitulos" aria-label="Informacion basica"> INFORMACIÓN BÁSICA </h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+
+      <div *ngFor="let campo of camposInfBasica">
+        <div class="row">
+          <!-- CAMPO -->
+          <app-campo-entrada class="col-11"
+            [formGroup]="formGroup"
+            [campoOpciones]="campo">
+          </app-campo-entrada>
+          <!-- CAMPANA -->
+          <div class="col-1 d-flex align-items-center">
+            <button name="testInformativo" aria-describedby="Probar informativo"
+                    class="btn btn-info d-flex align-items-center"
+                    (click)="mostrarCampoInconsistencia(campo)">
+              <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
+            </button>
+          </div>
+        </div>
+        <!-- CAMPO EDITABLE -->
+        <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
+          <app-campo-entrada class="col-11"
+            [formGroup]="formGroup"
+            [campoOpciones]="campo">
+          </app-campo-entrada>
+        </div>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div>
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel class="cajaExpansionInf">
+      <!--[attr.aria-label]="'sdasdas'"-->
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2 class="subtitulos" aria-label="Informacion adicional"> INFORMACIÓN ADICIONAL </h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+
+      <div *ngFor="let campo of camposInfAdicional">
+        <div class="row">
+          <!-- CAMPO -->
+          <app-campo-entrada class="col-11"
+                             [formGroup]="formGroup"
+                             [campoOpciones]="campo">
+          </app-campo-entrada>
+          <!-- CAMPANA -->
+          <div class="col-1 d-flex align-items-center">
+            <button name="testInformativo" aria-describedby="Probar informativo"
+                    class="btn btn-info d-flex align-items-center"
+                    (click)="mostrarCampoInconsistencia(campo)">
+              <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
+            </button>
+          </div>
+        </div>
+        <!-- CAMPO EDITABLE -->
+        <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
+          <app-campo-entrada class="col-11"
+                             [formGroup]="formGroup"
+                             [campoOpciones]="campo">
+          </app-campo-entrada>
+        </div>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div>
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel class="cajaExpansionInf">
+      <!--[attr.aria-label]="'sdasdas'"-->
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2 class="subtitulos" aria-label="Informacion de Nacimiento"> INFORMACIÓN DE NACIMIENTO </h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+
+      <div *ngFor="let campo of camposInfNacimiento">
+        <div class="row">
+          <!-- CAMPO -->
+          <app-campo-entrada class="col-11"
+                             [formGroup]="formGroup"
+                             [campoOpciones]="campo">
+          </app-campo-entrada>
+          <!-- CAMPANA -->
+          <div class="col-1 d-flex align-items-center">
+            <button name="testInformativo" aria-describedby="Probar informativo"
+                    class="btn btn-info d-flex align-items-center"
+                    (click)="mostrarCampoInconsistencia(campo)">
+              <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
+            </button>
+          </div>
+        </div>
+        <!-- CAMPO EDITABLE -->
+        <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
+          <app-campo-entrada class="col-11"
+                             [formGroup]="formGroup"
+                             [campoOpciones]="campo">
+          </app-campo-entrada>
+        </div>
+        <div *ngIf="campo.editable && campo.title === 'Lugar'" class="row">
+          <div *ngFor="let campoLugar of camposLugar">
+            <app-campo-entrada class="col-11"
+                               [formGroup]="formGroup"
+                               [campoOpciones]="campoLugar">
+            </app-campo-entrada>
+          </div>
+        </div>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div>
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel class="cajaExpansionInf">
+      <!--[attr.aria-label]="'sdasdas'"-->
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2 class="subtitulos" aria-label="Informacion de matrimonio"> INFORMACIÓN DE MATRIMONIO </h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+
+      <div *ngFor="let campo of camposInfMatrimonio">
+        <div class="row">
+          <!-- CAMPO -->
+          <app-campo-entrada class="col-11"
+                             [formGroup]="formGroup"
+                             [campoOpciones]="campo">
+          </app-campo-entrada>
+          <!-- CAMPANA -->
+          <div class="col-1 d-flex align-items-center">
+            <button name="testInformativo" aria-describedby="Probar informativo"
+                    class="btn btn-info d-flex align-items-center"
+                    (click)="mostrarCampoInconsistencia(campo)">
+              <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
+            </button>
+          </div>
+        </div>
+        <!-- CAMPO EDITABLE -->
+        <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
+          <app-campo-entrada class="col-11"
+                             [formGroup]="formGroup"
+                             [campoOpciones]="campo">
+          </app-campo-entrada>
+        </div>
+        <div *ngIf="campo.editable && campo.title === 'Lugar'" class="row">
+          <div *ngFor="let campoLugar of camposLugar">
+            <app-campo-entrada class="col-11"
+                               [formGroup]="formGroup"
+                               [campoOpciones]="campoLugar">
+            </app-campo-entrada>
+          </div>
+        </div>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="cajaTextoGrande">
+  <div class="cajaGrandeTituloyCampana">
+    <div class="cajaCampana">
+      <span class="material-symbols-outlined iconoCampana">notifications</span>
+    </div>
+    <div class="cajaTextoNotificacion col-11">
+      <h2>TERMINOS Y CONDICIONES</h2>
+    </div>
+  </div>
+
+  <p class="p0"> Lea los términos y condiciones de uso, si está de acuerdo active la casilla y de
+    clic en Siguiente para que su caso sea atendido por un equipo especializado del Registro Civil.</p>
+  <p class="p0"> Términos y condiciones de uso:</p>
+
+    <div class="cajaTerminosLegales">
+      TÉRMINOS LEGALES DE USO DE LOS SERVICIOS WEB DE LA DIRECCIÓN GENERAL DE REGISTRO CIVIL, IDENTIFICACIÓN Y CEDULACIÓN<br>
+      <br>&ensp;Aviso legal<br>
+      Pedimos, antes de seguir, lea a conciencia y con atención los Términos Legales de Uso que a continuación se detallan.<br>
+      <br>&ensp;PARA EL CORREO ELECTRÓNICO<br>
+      <br>La información, logotipos y los lemas comerciales contenidos en el presente mensaje de datos y en
+      sus anexos es estrictamente confidencial, de exclusiva propiedad de la Dirección General de Registro Civil,
+      Identificación y Cedulación, se encuentra dirigida únicamente a los destinatarios de los correos electrónicos
+      y está protegida por la Constitución de la República del Ecuador, Ley de Propiedad Intelectual y Ley de Comercio
+      Electrónico, Firmas Electrónicas y Mensajes de Datos. Se prohíbe su reproducción total o parcial, su mal uso,
+      retención, difusión y distribución no autorizada por autoridad competente.  La Dirección General de Registro Civil,
+      Identificación y Cedulación no se responsabiliza por los daños causados o derivados por el mal uso de
+      los mensajes de datos, y se reserva el derecho de ejercer las  acciones pertinentes en contra de quienes
+      utilicen indebidamente los datos.<br>
+
+      <br>&ensp;PARA EL USO DE LA PÁGINA WEB<br>
+      <br>&ensp;Derechos de Autor<br>
+      <br>La Ley de Propiedad Propiedad Intelectual protege los derechos de autor de todo el contenido del presente sitio
+      web. Todos los derechos y elementos que constituyen la presente página web son propiedad de la Dirección General
+      de Registro Civil, Identificación y Cedulación y son libremente accesibles sólo para fines de navegación. Se
+      prohíbe su reproducción total o parcial no autorizada, su transmisión a través de cualquier medio de comunicación
+      social, modificaciones, enlaces no registrados y autorizados o uso del presente sitio web para fines públicos
+      o comerciales.<br>
+      <br>Ningún componente del presente sitio web se encuentra concebido de forma que se otorgue una licencia o un derecho
+      para usarlo sin autorización por escrito de la Dirección General de Registro Civil, Identificación y Cedulación.
+      Las descargas o copias parciales o totales del presente sitio web no serán consideradas como transferencia
+      de derechos de autor.<br>
+      <br>Este sitio web no tiene ninguna afiliación ni relación con las marcas o empresas que de algún modo mencionamos
+      o promocionamos como herramientas de trabajo. Respetamos los derechos de marca, la imagen y los productos
+      asociados a las mismas, evitando los usos indebidos. Si usted o su organización poseen algún derecho sobre
+      el uso marcario de algún elemento publicado en este sitio web (logo, marca, nombre, etc) y cree que de algún
+      modo el sitio infringe los términos de uso y las condiciones en relación a estos elementos, por favor
+      comuníquese con nosotros indicando el fallo/omisión, y a la brevedad le responderemos.<br>
+      <br>&ensp;Responsabilidad<br>
+      <br>La Dirección General de Registro Civil, Identificación y Cedulación garantiza únicamente la fiabilidad de los
+      datos e informaciones contenidas en el presente sitio web, que provengan de su propia fuente, sin que pueda
+      garantizar la autenticidad o autoría de publicaciones, opiniones y demás informaciones constantes en la misma
+      página. La información parcial o total contenida en presente sitio web podrá ser modificada en cualquier momento,
+      sin previo aviso.<br>
+      <br>La Dirección General de Registro Civil, Identificación y Cedulación no ofrece ninguna garantía ni asume
+      responsabilidad alguna sobre el funcionamiento del presente sitio web y los enlaces con otros sitios web,
+      ni que se encuentren exentos de virus o de otros componentes dañinos.<br>
+      <br>&ensp;Enlaces<br>
+      <br>La presente página web contiene enlaces a otras páginas web de propiedad de terceros que podrían ser de
+      interés para usted. La Dirección General de Registro Civil, Identificación y Cedulación de ninguna manera
+      es responsable del contenido o funcionalidad de las citadas páginas; la activación de las mismas a través
+      de los links establecidos en la presente página son de exclusiva responsabilidad del usuario y, el contenido,
+      información o funcionalidad de los datos, de sus instituciones propietarias y de sus productores.<br>
+      <br>&ensp;Protección de datos<br>
+      <br>La presente página web se encuentra protegida por la Ley de Comercio Electrónico, Firmas Electrónicas y Mensajes
+      de Datos. Usted como visitante de la presente página web acepta que todos los datos e imágenes ingresadas o
+      referidas por usted pasen a ser propiedad de la Dirección General de Registro Civil, Identificación y Cedulación,
+      la misma que podrá hacer uso de ellas de la forma que la Constitución y la Ley lo permita.<br>
+      <br>Nosotros debido a su visita, estamos automáticamente en posesión de informaciones que nos permite
+      averiguar cómo los visitantes usan nuestro sitio web y con qué finalidades y qué informaciones encuentran
+      de su interés. Si se registra vía nuestro sitio web para obtener servicios que la Institución ofrece a través
+      de este medio electrónico, indispensablemente necesitamos de informaciones personales, tales como sus nombres,
+      apellidos, número de cédula o pasaporte, dirección domiciliaria, un teléfono de contacto y una dirección activa
+      de correo electrónico. Conforme lo determina la Constitución de la República del Ecuador y la ley trataremos sus
+      datos personales de forma confidencial y sólo serán entregados a terceras personas cuando medie un requerimiento
+      escrito de autoridad competente.<br>
+      <br>&ensp;Cookies<br>
+      <br>Cookies son pequeños elementos de datos que un browser (navegador) puede transmitir a su sitio web para
+      asistir mejor a sus sistemas apoyados por bases de datos. Sin embargo, tiene la posibilidad de ajustar su
+      browser de manera que éste llama su atención cuando ha recibido un cookie o deniega éste automáticamente.
+      De este modo, Usted mismo puede decidir sí lo acepta o no. Pero el no aceptar un cookie puede originar que no
+      pueda generar ningún "account" personal y serán imposibles ejecutar algunas o todas las aplicaciones de la
+      presente página web.<br>
+      <br>&ensp;Su registro<br>
+      <br>Para tener acceso a algunas aplicaciones de la presente página web, básicamente no necesita ningún
+      account personal. Un account personal conlleva algunas ventajas, sobre todo si visita frecuentemente
+      el presente sitio web. La apertura un account personal se sujetará a las condiciones establecidas en
+      la cláusula de Protección de Datos.<br>
+      <br>&ensp;Aceptación<br>
+      <br>Al dar clic en "Siguiente", el usuario acepta que los Términos Legales de Uso del sitio se rigen y
+      serán interpretados de conformidad con las leyes de la República del Ecuador
+      (ver http://novedades.registrocivil.gob.ec) y el usuario hace renuncia expresa a cualquier otro fuero,
+      sometiéndose a los Jueces y Tribunales competentes de la ciudad de Quito, provincia de Pichincha,
+      República del Ecuador.<br>
+    </div>
+
+  <div *ngFor="let campo of campoCheckNotificacion">
+    <div>
+      <!-- CAMPO -->
+      <app-campo-entrada
+                         [formGroup]="formGroup"
+                         [campoOpciones]="campo">
+      </app-campo-entrada>
+    </div>
+  </div>
+
+</div>
+
+<div class="contenedorBotones">
+  <button class="btn1 align-items-center" name="testConfirmacion" aria-describedby="Probar confirmación"
+          (click)="abrirConfirmacion()">
+    <h2 class="subtitulos">ENVIAR INCONSISTENCIAS</h2>
+  </button>
+
+  <button class="btn1 align-items-center" name="testConfirmacion" aria-describedby="Probar confirmación"
+          (click)="abrirConfirmacionCerrarSesion()">
+    <h2 class="subtitulos">CERRAR SESIÓN</h2>
+  </button>
+
+</div>
+

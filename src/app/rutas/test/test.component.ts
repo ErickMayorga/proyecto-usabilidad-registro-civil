@@ -115,6 +115,9 @@ export class TestComponent implements OnInit {
   constructor(private readonly campoEntradaService: CampoEntradaService,
               public dialog: MatDialog,) {
     this.formGroup = this.campoEntradaService.getFormGroup(this.campos)
+    localStorage.setItem("variable", "45")
+    const valor = localStorage.getItem("variable")
+    console.log(valor)
   }
 
   ngOnInit(): void {
@@ -182,6 +185,18 @@ export class TestComponent implements OnInit {
         }
       }
     )
+  }
+
+  mostrarCampoInconsistencia(campo: CampoEntradaInterface){
+    if(campo.editable === undefined){
+      campo.editable = true
+    }else{
+      campo.editable = !campo.editable
+    }
+  }
+
+  enviar(){
+    this.abrirInformativo()
   }
 
 }

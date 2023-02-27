@@ -16,7 +16,11 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
 import {CommonModule} from "@angular/common";
 import { TestComponent } from './rutas/test/test.component';
-import { ValidacionCedulaComponent } from './rutas/validacion-cedula/validacion-cedula.component';
+import { VerificacionDatosPersonalesComponent } from './rutas/verificacion-datos-personales/verificacion-datos-personales.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatInputModule} from "@angular/material/input";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -29,7 +33,7 @@ import { ValidacionCedulaComponent } from './rutas/validacion-cedula/validacion-
     NotificacionComponent,
     CampoEntradaComponent,
     TestComponent,
-    ValidacionCedulaComponent
+    VerificacionDatosPersonalesComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,11 @@ import { ValidacionCedulaComponent } from './rutas/validacion-cedula/validacion-
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    CommonModule
+    CommonModule,
+    MatExpansionModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

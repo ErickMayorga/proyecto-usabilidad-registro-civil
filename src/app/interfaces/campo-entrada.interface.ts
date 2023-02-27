@@ -12,4 +12,6 @@ export interface CampoEntradaInterface {
   mensajes: MensajeErrorInterface[]
   deshabilitar: boolean
   opciones?: {clave: string, valor: string}[]
+  editable?: boolean
+  valorEditado?: string
 }
