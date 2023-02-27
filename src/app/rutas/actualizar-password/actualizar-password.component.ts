@@ -63,13 +63,13 @@ export class ActualizarPasswordComponent implements OnInit {
     private campoEntradaService:CampoEntradaService,
     public dialog:MatDialog,
     private router:Router
-  ) { 
+  ) {
     this.formGroup = this.campoEntradaService.getFormGroup(this.campos)
   }
 
   ngOnInit(): void {
   }
-  
+
   validarFormulario(){
     const botones: BotonInterface[] = [
       {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
@@ -83,7 +83,7 @@ export class ActualizarPasswordComponent implements OnInit {
         contenido: 'Se ha actualizado la contraseña correctamente. Vuelve a ingresar al sistema con tu nueva contraseña.',
         botones: botones
       }
-      this.mostrarNotificacion(notificacionOpciones)
+      this.mostrarNotificacion(notificacionOpciones, '/inicio-sesion')
     }else{
       const notificacionOpciones: NotificacionInterface = {
         tipo: TipoNotificacionEnum.ERROR,
@@ -91,11 +91,11 @@ export class ActualizarPasswordComponent implements OnInit {
         contenido: 'Ups, hubo un error. Por favor, deben coincidir la contraseña y la confirmación.',
         botones: botones
       }
-      this.mostrarNotificacion(notificacionOpciones)
+      this.mostrarNotificacion(notificacionOpciones, '/actualizar-password')
     }
   }
 
-  mostrarNotificacion(notificacionOpciones: NotificacionInterface){
+  mostrarNotificacion(notificacionOpciones: NotificacionInterface, redirectTo: string){
     // Apertura de notificacion
     const referenciaDialogo = this.dialog.open(
       NotificacionComponent,
@@ -112,8 +112,7 @@ export class ActualizarPasswordComponent implements OnInit {
     referenciaDialogo.afterClosed().subscribe(
       (datos) => {
         if(datos!=undefined){
-          const accion = datos['accion']
-          console.log(accion)
+          this.router.navigateByUrl(redirectTo)
         }
       }
     )
