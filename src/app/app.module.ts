@@ -18,6 +18,7 @@ import {CommonModule} from "@angular/common";
 import { TestComponent } from './rutas/test/test.component';
 import { ActualizarPasswordComponent } from './rutas/actualizar-password/actualizar-password.component';
 import { CorreoConfirmacionComponent } from './rutas/correo-confirmacion/correo-confirmacion.component';
+import { ValidacionCedulaComponent } from './rutas/validacion-cedula/validacion-cedula.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CorreoConfirmacionComponent } from './rutas/correo-confirmacion/correo-
     CampoEntradaComponent,
     TestComponent,
     ActualizarPasswordComponent,
-    CorreoConfirmacionComponent
+    CorreoConfirmacionComponent,
+    ValidacionCedulaComponent
   ],
   imports: [
     BrowserModule,

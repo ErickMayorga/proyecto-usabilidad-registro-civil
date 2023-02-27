@@ -1,0 +1,13 @@
+.boton{
+    background-color: #23497A;
+    color: white;
+    width: auto;
+    border: 1px solid black;
+}
+
+@media (min-width: 576px) {
+    .caja{
+   display: grid;
+   grid-template-columns: 50% 50%;
+   }
+}
