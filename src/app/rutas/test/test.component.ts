@@ -10,6 +10,7 @@ import {NotificacionInterface} from "../../interfaces/notificacion.interface";
 import {BotonInterface} from "../../interfaces/boton.interface";
 import {TipoBotonEnum} from "../../constants/tipo-boton.enum";
 import {TipoMensajeEnum} from "../../constants/tipo-mensaje.enum";
+import {TraduccionService} from "../../servicios/traduccion/traduccion.service";
 
 @Component({
   selector: 'app-test',
@@ -113,7 +114,8 @@ export class TestComponent implements OnInit {
   ]
 
   constructor(private readonly campoEntradaService: CampoEntradaService,
-              public dialog: MatDialog,) {
+              public dialog: MatDialog,
+              public translateService: TraduccionService) {
     this.formGroup = this.campoEntradaService.getFormGroup(this.campos)
     localStorage.setItem("variable", "45")
     const valor = localStorage.getItem("variable")

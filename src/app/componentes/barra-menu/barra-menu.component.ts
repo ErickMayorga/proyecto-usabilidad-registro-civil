@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {TraduccionService} from "../../servicios/traduccion/traduccion.service";
 
 @Component({
   selector: 'app-barra-menu',
@@ -9,9 +10,14 @@ export class BarraMenuComponent implements OnInit {
 
   @Input() nombreUsuario!: string
 
-  constructor() { }
+  constructor(public translateService: TraduccionService) { }
 
   ngOnInit(): void {
+  }
+
+  cambiarIdioma(idioma: any){
+    const idiomaString = idioma.value
+    this.translateService.establecerLenguaje(idiomaString)
   }
 
 }

@@ -24,6 +24,16 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {ValidacionCedulaComponent} from "./rutas/validacion-cedula/validacion-cedula.component";
 import { ActualizarPasswordComponent } from './rutas/actualizar-password/actualizar-password.component';
 import { CorreoConfirmacionComponent } from './rutas/correo-confirmacion/correo-confirmacion.component';
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {environment} from "../environments/environment.prod";
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+  //return new TranslateHttpLoader(httpClient, '/assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -54,7 +64,15 @@ import { CorreoConfirmacionComponent } from './rutas/correo-confirmacion/correo-
     MatExpansionModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
