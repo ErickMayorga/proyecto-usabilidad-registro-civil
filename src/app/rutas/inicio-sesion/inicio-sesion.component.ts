@@ -63,6 +63,7 @@ export class InicioSesionComponent implements OnInit {
       deshabilitar: false
     },
   ]
+  private registroInfo: any;
   constructor(private readonly campoEntradaService: CampoEntradaService,
               public dialog: MatDialog,
               private readonly router: Router,) {
@@ -70,6 +71,11 @@ this.formGroup = this.campoEntradaService.getFormGroup(this.campos)
 }
 
   ngOnInit(): void {
+    const registroInfoVar = localStorage.getItem('registroInfo')
+    const obj = JSON.parse(registroInfoVar!)
+    if(obj != null){
+      this.registroInfo = obj
+    }
   }
 
   autentificar(){
@@ -77,9 +83,13 @@ this.formGroup = this.campoEntradaService.getFormGroup(this.campos)
       {tipo: TipoBotonEnum.ACEPTAR, texto: 'Aceptar', lectorTexto: 'Botón aceptar', nombreBoton: 'btnAceptar'},
     ]
 
-    if (this.formGroup.get('cedula')?.value== '1722334455' && this.formGroup.get('clave')?.value=='Clave123') {
+    const cedula = this.formGroup.get('cedula')?.value
+    const clave = this.formGroup.get('clave')?.value
+    if (cedula == '1722334455' && clave =='Clave123') {
       this.router.navigateByUrl('/verificacion-datos-personales')
-    }else{
+    } else if(this.registroInfo && cedula == this.registroInfo.cedula && clave ==this.registroInfo.password){
+      this.router.navigateByUrl('/verificacion-datos-personales')
+    } else{
       const notificacionOpciones: NotificacionInterface = {
         tipo: TipoNotificacionEnum.ERROR,
         titulo: 'Cédula o contraseña incorrecta',

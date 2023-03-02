@@ -12,7 +12,9 @@
   <div class="container">
     <div class="row d-flex justify-content-center">
       <button name="validarCedula" aria-label="Validar número de cédula"
-              class="btn boton" type="submit" (click)="validarCedula()">
+              class="btn rounded-pill px-5 boton" type="submit"
+              [disabled]="formGroup.invalid"
+              (click)="validarCedula()">
         Validar
       </button>
     </div>

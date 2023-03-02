@@ -28,6 +28,7 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {environment} from "../environments/environment.prod";
+import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -51,6 +52,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     RegistroComponent,
     ActualizarPasswordComponent,
     CorreoConfirmacionComponent,
+    PiePaginaComponent,
   ],
   imports: [
     BrowserModule,

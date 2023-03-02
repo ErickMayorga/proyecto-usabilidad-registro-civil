@@ -18,10 +18,12 @@ export class CampoEntradaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.campoOpciones.deshabilitar){
+      this.formGroup.get(this.campoOpciones.nameField)?.disable()
+    }
   }
 
   obtenerMensajeAyuda(campo: CampoEntradaInterface, formGroup: FormGroup){
     return this.campoEntradaService.obtenerMensajeValidacion(campo, formGroup)
   }
-
 }

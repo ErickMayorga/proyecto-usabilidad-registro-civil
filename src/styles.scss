@@ -8,3 +8,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   justify-content: center;
   align-items: center;
 }
+
+.boton{
+  background-color: #23497A;
+  color: white;
+  width: auto;
+  border: 1px solid black;
+  margin: 15px;
+}
+
+.boton:hover{
+  background-color: white;
+  color: #23497A;
+  width: auto;
+  border: 1px solid #23497A;
+  margin: 15px;
+}

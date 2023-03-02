@@ -89,13 +89,32 @@ export class RegistroComponent implements OnInit {
     }
 
   validarCampos(){
-    if(isNaN(this.formGroup.get('teléfono convencional')?.value) || isNaN(this.formGroup.get('teléfono celular')?.value)){
-      this.abrirError('Error en ingreso de número telefónico', 'Ingrese solo números en este campo!');
-    }else if(this.formGroup.get('contraseña')?.value != this.formGroup.get('confirmación de contraseña')?.value ){
-      this.abrirError('Error de confirmación de contraseña', 'Las contraseñas no coinciden!');
+    const telefonoConvencional = this.formGroup.get('teléfono convencional')?.value
+    const telefonoCelular = this.formGroup.get('teléfono celular')?.value
+    const password = this.formGroup.get('contraseña')?.value
+    const passwordConfirmacion = this.formGroup.get('confirmación de contraseña')?.value
+    console.log(telefonoConvencional, telefonoConvencional.length)
+    console.log(telefonoCelular)
+    console.log(password)
+    console.log(passwordConfirmacion)
+    console.log(this.formGroup.valid)
+
+    /*if(telefonoConvencional || telefonoCelular.length === 0){
+      this.abrirError('Error en ingreso de correo', 'Por favor, ingrese los campos de teléfono convencional y celular con solo números!');
+    }else if(telefonoConvencional.length === 0 || telefonoCelular.length === 0){
+      this.abrirError('Error en ingreso de número telefónico', 'Por favor, ingrese los campos de teléfono convencional y celular con solo números!');
+    }else*/ if(password != passwordConfirmacion){
+      this.abrirError('Error de confirmación de contraseña', 'Las contraseñas no coinciden! Por favor, inténtelo nuevamente');
     }else{
+      const registroCookie = {
+        cedula: localStorage.getItem('cedulaValidada') ? localStorage.getItem('cedulaValidada') : '',
+        password: password
+      }
+      localStorage.setItem('registroInfo', JSON.stringify(registroCookie))
+
       this.abrirExito();
       this.router.navigateByUrl('/inicio-sesion');
+
     }
   }
 }

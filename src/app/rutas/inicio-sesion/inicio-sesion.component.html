@@ -15,7 +15,9 @@
                 <a class="mt-3 mb-3" href="" routerLink="/recuperar-password">¿Olvidó su contraseña?</a>
                 <div>
                     <button id="btnAcceder" name="Acceder" aria-label="Acceder al sistema"
-                            class="btn bg-secundario text-white rounded-pill m-3 px-5" (click)="autentificar()">
+                            class="btn bg-secundario text-white rounded-pill m-3 px-5"
+                            [disabled]="formGroup.invalid"
+                            (click)="autentificar()">
                         <span>Acceder</span>
                     </button>
                 </div>
@@ -29,7 +31,8 @@
                 <p>Registrate y verifica que tus datos estén correctos en el registro civil.</p>
                 <div>
                     <button id="btnRegistrarse" name="Registrarse" aria-label="Registrarse"
-                            class="btn bg-white rounded-pill px-3" routerLink="/validacion-cedula">
+                            class="btn bg-white rounded-pill px-3"
+                            routerLink="/validacion-cedula">
                         <span>Registrarse</span>
                     </button>
                 </div>

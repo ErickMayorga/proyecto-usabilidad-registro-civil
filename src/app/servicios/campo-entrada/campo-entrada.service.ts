@@ -47,21 +47,34 @@ export class CampoEntradaService {
     const contieneValor = formGroup.get(campo.nameField)?.dirty
     const hayErrorLongitud = formGroup.get(campo.nameField)?.hasError('minlength') ||
       formGroup.get(campo.nameField)?.hasError('maxlength')
+    const noEsEmail = formGroup.get(campo.nameField)?.hasError('email')
 
-    /*
-    console.log(`Ha sido tocado: ${haSidoTocado}\n`,
-      `Contiene valor: ${contieneValor}\n`,
-      `Es invalido: ${esInvalido}\n`,
-      `Error de longitud: ${hayErrorLongitud}`)
-     */
+    // console.log(`Ha sido tocado: ${haSidoTocado}\n`,
+    //   `Contiene valor: ${contieneValor}\n`,
+    //   `Es invalido: ${esInvalido}\n`,
+    //   `Error de longitud: ${hayErrorLongitud}`)
 
-    if(haSidoTocado && contieneValor && esInvalido && !hayErrorLongitud){
+
+    //if(haSidoTocado && contieneValor && esInvalido && !hayErrorLongitud){
+    if(haSidoTocado && contieneValor && esInvalido && !hayErrorLongitud && !noEsEmail){
       const mensajeFiltrado = campo.mensajes.find(
         (mensaje) => mensaje.tipo === TipoMensajeEnum.REQUERIDO
       )
       return {
         mensaje: mensajeFiltrado!.textoMensaje ? mensajeFiltrado!.textoMensaje : 'Error validación requerido',
         error: true
+      }
+    }
+
+    if(haSidoTocado && contieneValor && noEsEmail) {
+      const mensajeFiltrado = campo.mensajes.find(
+        (mensaje) => mensaje.tipo === TipoMensajeEnum.VALIDEZ
+      )
+      if(mensajeFiltrado){
+        return {
+          mensaje: mensajeFiltrado!.textoMensaje ? mensajeFiltrado!.textoMensaje : 'Error validación requerido',
+          error: true
+        }
       }
     }
 

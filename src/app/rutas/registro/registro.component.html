@@ -14,11 +14,13 @@
 
   <div class="d-flex justify-content-center">
     <button name="registrar" aria-label="Registrar"
-            class="btn boton btn-info d-flex align-items-center" (click)="validarCampos()">
+            class="btn boton rounded-pill px-5 d-flex align-items-center"
+            [disabled]="formGroup.invalid"
+            (click)="validarCampos()">
       Registrar
     </button>
     <button name="nuevaBusqueda" aria-label="Nueva Búsqueda de cédula"
-            class="btn boton" type="submit" routerLink="/validacion-cedula">
+            class="btn boton rounded-pill px-5" type="submit" routerLink="/validacion-cedula">
       Nueva búsqueda
     </button>
   </div>
