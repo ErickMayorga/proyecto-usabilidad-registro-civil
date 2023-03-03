@@ -4,21 +4,62 @@ import {TipoMensajeEnum} from "../constants/tipo-mensaje.enum";
 
 export const informacionMatrimonioForm: CampoEntradaInterface[] = [
   {
-    type: TipoCampoEnum.TEXT,
+    type: TipoCampoEnum.NUMBER,
     title: 'Tomo: ',
     nameField: 'tomoMatrimonio',
-    helpText: 'Ingrese solo números)',
-    screenReaderText: 'Ingrese el número de tomo de su acta de matrimonio',
-    placeholder: 'Ingreso solo números',
+    helpText: 'Ingrese el número de tomo de su acta de matrimonio',
+    screenReaderText: 'Número de tomo de su acta de matrimonio',
+    placeholder: 'Ej: 123',
     mensajes: [
       {
         tipo: TipoMensajeEnum.REQUERIDO,
         textoMensaje: 'Este campo es requerido',
       },
+    ],
+    deshabilitar: true
+  },
+  {
+    type: TipoCampoEnum.NUMBER,
+    title: 'Clase: ',
+    nameField: 'claseMatrimonio',
+    helpText: 'Ingrese la clase de su acta de matrimonio',
+    screenReaderText: 'Número de clase de su acta de matrimonio',
+    placeholder: 'Ej: 123',
+    mensajes: [
       {
-        tipo: TipoMensajeEnum.LONGITUD,
-        textoMensaje: 'La longitud de este campo es entre 5 y 8 caracteres',
-        opciones: {min: 5, max: 8}
+        tipo: TipoMensajeEnum.REQUERIDO,
+        textoMensaje: 'Este campo es requerido',
+      },
+    ],
+    deshabilitar: true
+  },
+  {
+    type: TipoCampoEnum.NUMBER,
+    title: 'Pagina: ',
+    nameField: 'paginaMatrimonio',
+    helpText: 'Ingrese la página de su acta de matrimonio',
+    screenReaderText: 'Número de página de su acta de matrimonio',
+    placeholder: 'Ej: 123',
+    mensajes: [
+      {
+        tipo: TipoMensajeEnum.REQUERIDO,
+        textoMensaje: 'Este campo es requerido',
+      },
+    ],
+    deshabilitar: true
+  },
+
+  {
+    type: TipoCampoEnum.NUMBER,
+    title: 'Acta: ',
+    nameField: 'actaMatrimonio',
+    helpText: 'Ingrese el número de su acta de matrimonio',
+    screenReaderText: 'Número de su acta de matrimonio',
+    placeholder: 'Ej: 123',
+    mensajes: [
+      {
+        tipo: TipoMensajeEnum.REQUERIDO,
+        textoMensaje: 'Este campo es requerido',
       },
     ],
     deshabilitar: true
@@ -26,73 +67,10 @@ export const informacionMatrimonioForm: CampoEntradaInterface[] = [
 
   {
     type: TipoCampoEnum.TEXT,
-    title: 'Clase: ',
-    nameField: 'claseMatrimonio',
-    helpText: 'Ingrese solo números',
-    screenReaderText: 'Ingrese la clase de su acta de matrimonio',
-    placeholder: '...',
-    mensajes: [
-      {
-        tipo: TipoMensajeEnum.REQUERIDO,
-        textoMensaje: 'Este campo es requerido',
-      },
-      {
-        tipo: TipoMensajeEnum.LONGITUD,
-        textoMensaje: 'La longitud de este campo es entre 5 y 8 caracteres',
-        opciones: {min: 5, max: 8}
-      },
-    ],
-    deshabilitar: false
-  },
-
-  {
-    type: TipoCampoEnum.TEXT,
-    title: 'Pagina: ',
-    nameField: 'paginaMatrimonio',
-    helpText: 'Ingrese solo números',
-    screenReaderText: 'Ingrese la página de su acta de matrimonio',
-    placeholder: '...',
-    mensajes: [
-      {
-        tipo: TipoMensajeEnum.REQUERIDO,
-        textoMensaje: 'Este campo es requerido',
-      },
-      {
-        tipo: TipoMensajeEnum.LONGITUD,
-        textoMensaje: 'La longitud de este campo es entre 5 y 8 caracteres',
-        opciones: {min: 5, max: 8}
-      },
-    ],
-    deshabilitar: false
-  },
-
-  {
-    type: TipoCampoEnum.TEXT,
-    title: 'Acta: ',
-    nameField: 'actaMatrimonio',
-    helpText: 'Ingrese solo números',
-    screenReaderText: 'Ingrese el número de su acta de matrimonio',
-    placeholder: 'Ingrese solo números',
-    mensajes: [
-      {
-        tipo: TipoMensajeEnum.REQUERIDO,
-        textoMensaje: 'Este campo es requerido',
-      },
-      {
-        tipo: TipoMensajeEnum.LONGITUD,
-        textoMensaje: 'La longitud de este campo es entre 5 y 10 caracteres',
-        opciones: {min: 5, max: 10}
-      },
-    ],
-    deshabilitar: false
-  },
-
-  {
-    type: TipoCampoEnum.TEXT,
     title: 'Lugar',
     nameField: 'lugarMatrimonio',
-    helpText: 'Ingrese el lugar (Provincia, Ciudad, Parroquia) de su nacimiento',
-    screenReaderText: "Ingrese el lugar (Provincia, Ciudad, Parroquia) de su nacimiento",
+    helpText: 'Ingrese el lugar (Provincia, Ciudad, Parroquia) de su matrimonio',
+    screenReaderText: "Lugar de su matrimonio (Provincia, Ciudad, Parroquia)",
     placeholder: 'Prichincha, Quito, Belisario Quevedo',
     mensajes: [
       {
@@ -105,6 +83,6 @@ export const informacionMatrimonioForm: CampoEntradaInterface[] = [
         opciones: {min: 25, max: 30}
       },
     ],
-    deshabilitar: false
+    deshabilitar: true
   },
 ]

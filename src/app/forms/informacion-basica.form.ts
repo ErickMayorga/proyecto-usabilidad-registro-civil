@@ -7,9 +7,9 @@ export const informacionBasicaForm: CampoEntradaInterface[] = [
     type: TipoCampoEnum.TEXT,
     title: 'Nombre: ',
     nameField: 'nombre',
-    helpText: 'Ingrese solo letras (Nombre completo)',
-    screenReaderText: 'Ingrese su nombre completo',
-    placeholder: 'Ariel Thomás Rosero Peñaherrera',
+    helpText: 'Ingrese su nombre completo',
+    screenReaderText: 'Nombre completo',
+    placeholder: 'Ej: Ariel Thomás Rosero Peñaherrera',
     mensajes: [
       {
         tipo: TipoMensajeEnum.REQUERIDO,
@@ -21,22 +21,21 @@ export const informacionBasicaForm: CampoEntradaInterface[] = [
         opciones: {min: 15, max: 30}
       },
     ],
-    deshabilitar: false
+    deshabilitar: true
   },
   {
     type: TipoCampoEnum.SELECT,
     title: 'Sexo:',
     nameField: 'sexo',
     helpText: 'Seleccione su sexo',
-    screenReaderText: 'Seleccione el sexo',
-    placeholder: 'Hombre',
+    screenReaderText: 'Sexo',
     mensajes: [
       {
         tipo: TipoMensajeEnum.REQUERIDO,
         textoMensaje: 'Este campo es requerido',
       },
     ],
-    deshabilitar: false,
+    deshabilitar: true,
     opciones: [
       {clave: "1", valor: "Hombre"},
       {clave: "2", valor: "Mujer"},
@@ -48,7 +47,7 @@ export const informacionBasicaForm: CampoEntradaInterface[] = [
     title: 'Fecha de Nacimiento:',
     nameField: 'fecha',
     helpText: 'Ingrese una fecha (dd/mm/aaaa)',
-    screenReaderText: 'Ingrese una fecha en formato: dd/mm/aaaa',
+    screenReaderText: 'Fecha de nacimiento',
     placeholder: '27/11/1999',
     mensajes: [
       {
@@ -56,7 +55,7 @@ export const informacionBasicaForm: CampoEntradaInterface[] = [
         textoMensaje: 'Este campo es requerido',
       },
     ],
-    deshabilitar: false
+    deshabilitar: true
   },
 
   {
@@ -64,15 +63,14 @@ export const informacionBasicaForm: CampoEntradaInterface[] = [
     title: 'Estado Civil:',
     nameField: 'estadoCivil',
     helpText: 'Seleccione su estado civil',
-    screenReaderText: 'Seleccione su estado civil',
-    placeholder: 'Soltero',
+    screenReaderText: 'Estado civil',
     mensajes: [
       {
         tipo: TipoMensajeEnum.REQUERIDO,
         textoMensaje: 'Este campo es requerido',
       },
     ],
-    deshabilitar: false,
+    deshabilitar: true,
     opciones: [
       {clave: "1", valor: "Soltero"},
       {clave: "2", valor: "Casado"},

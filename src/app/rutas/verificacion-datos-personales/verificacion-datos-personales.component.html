@@ -1,4 +1,4 @@
-<app-barra-menu nombreUsuario="Erick Mayorga"></app-barra-menu>
+<app-barra-menu nombreUsuario="Juan Pérez"></app-barra-menu>
 <main>
   <h1 class="titulo">REVISIÓN DE DATOS DE IDENTIDAD</h1>
 
@@ -26,22 +26,26 @@
         <div *ngFor="let campo of camposInfBasica">
           <div class="d-flex flex-row">
             <!-- CAMPO -->
-            <app-campo-entrada class="col-10"
+            <app-campo-entrada class="col-8"
                                [formGroup]="formGroup"
                                [campoOpciones]="campo">
             </app-campo-entrada>
             <!-- CAMPANA -->
             <div class="col-1 d-flex align-items-center ms-3">
               <button name="notificarInconsistencia" aria-label="Notificar inconsistencia"
-                      class="btn btn-info d-flex align-items-center"
+                      class="btn btn-warning d-flex align-items-center justify-content-center flex-wrap"
                       (click)="mostrarCampoInconsistencia(campo)">
-                <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
+                <mat-icon aria-hidden="false"
+                          aria-label="ícono de actualizar campo y notificar inconsistencia">
+                  notifications
+                </mat-icon>
+                <span>Actualizar</span>
               </button>
             </div>
           </div>
           <!-- CAMPO EDITABLE -->
           <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
-            <app-campo-entrada class="col-11"
+            <app-campo-entrada class="col-8"
                                [formGroup]="formGroup"
                                [campoOpciones]="campo">
             </app-campo-entrada>
@@ -66,22 +70,26 @@
         <div *ngFor="let campo of camposInfAdicional">
           <div class="d-flex flex-row">
             <!-- CAMPO -->
-            <app-campo-entrada class="col-10"
+            <app-campo-entrada class="col-8"
                                [formGroup]="formGroup"
                                [campoOpciones]="campo">
             </app-campo-entrada>
             <!-- CAMPANA -->
             <div class="col-1 d-flex align-items-center ms-3">
               <button name="notificarInconsistencia" aria-label="Notificar inconsistencia"
-                      class="btn btn-info d-flex align-items-center"
+                      class="btn btn-warning d-flex align-items-center justify-content-center flex-wrap"
                       (click)="mostrarCampoInconsistencia(campo)">
-                <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
+                <mat-icon aria-hidden="false"
+                          aria-label="ícono de actualizar campo y notificar inconsistencia">
+                  notifications
+                </mat-icon>
+                <span>Actualizar</span>
               </button>
             </div>
           </div>
           <!-- CAMPO EDITABLE -->
           <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
-            <app-campo-entrada class="col-11"
+            <app-campo-entrada class="col-8"
                                [formGroup]="formGroup"
                                [campoOpciones]="campo">
             </app-campo-entrada>
@@ -106,29 +114,33 @@
         <div *ngFor="let campo of camposInfNacimiento">
           <div class="d-flex flex-row">
             <!-- CAMPO -->
-            <app-campo-entrada class="col-10"
+            <app-campo-entrada class="col-8"
                                [formGroup]="formGroup"
                                [campoOpciones]="campo">
             </app-campo-entrada>
             <!-- CAMPANA -->
             <div class="col-1 d-flex align-items-center ms-3">
               <button name="notificarInconsistencia" aria-label="Notificar inconsistencia"
-                      class="btn btn-info d-flex align-items-center"
+                      class="btn btn-warning d-flex align-items-center justify-content-center flex-wrap"
                       (click)="mostrarCampoInconsistencia(campo)">
-                <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
+                <mat-icon aria-hidden="false"
+                          aria-label="ícono de actualizar campo y notificar inconsistencia">
+                  notifications
+                </mat-icon>
+                <span>Actualizar</span>
               </button>
             </div>
           </div>
           <!-- CAMPO EDITABLE -->
           <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
-            <app-campo-entrada class="col-11"
+            <app-campo-entrada class="col-8"
                                [formGroup]="formGroup"
                                [campoOpciones]="campo">
             </app-campo-entrada>
           </div>
           <div *ngIf="campo.editable && campo.title === 'Lugar'" class="row">
             <div *ngFor="let campoLugar of camposLugar">
-              <app-campo-entrada class="col-11"
+              <app-campo-entrada class="col-8"
                                  [formGroup]="formGroup"
                                  [campoOpciones]="campoLugar">
               </app-campo-entrada>
@@ -154,29 +166,33 @@
         <div *ngFor="let campo of camposInfMatrimonio">
           <div class="d-flex flex-row">
             <!-- CAMPO -->
-            <app-campo-entrada class="col-10"
+            <app-campo-entrada class="col-8"
                                [formGroup]="formGroup"
                                [campoOpciones]="campo">
             </app-campo-entrada>
             <!-- CAMPANA -->
             <div class="col-1 d-flex align-items-center ms-3">
               <button name="notificarInconsistencia" aria-label="Notificar inconsistencia"
-                      class="btn btn-info d-flex align-items-center"
+                      class="btn btn-warning d-flex align-items-center justify-content-center flex-wrap"
                       (click)="mostrarCampoInconsistencia(campo)">
-                <mat-icon aria-hidden="false" aria-label="ícono de casa">notifications</mat-icon>
+                <mat-icon aria-hidden="false"
+                          aria-label="ícono de actualizar campo y notificar inconsistencia">
+                  notifications
+                </mat-icon>
+                <span>Actualizar</span>
               </button>
             </div>
           </div>
           <!-- CAMPO EDITABLE -->
           <div *ngIf="campo.editable && campo.title != 'Lugar'" class="row">
-            <app-campo-entrada class="col-11"
+            <app-campo-entrada class="col-8"
                                [formGroup]="formGroup"
                                [campoOpciones]="campo">
             </app-campo-entrada>
           </div>
           <div *ngIf="campo.editable && campo.title === 'Lugar'" class="row">
             <div *ngFor="let campoLugar of camposLugar">
-              <app-campo-entrada class="col-11"
+              <app-campo-entrada class="col-8"
                                  [formGroup]="formGroup"
                                  [campoOpciones]="campoLugar">
               </app-campo-entrada>

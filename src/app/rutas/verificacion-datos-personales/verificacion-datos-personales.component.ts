@@ -77,6 +77,36 @@ export class VerificacionDatosPersonalesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.formGroup.patchValue({
+      // Basica
+      nombre: 'Juan Alberto Pérez Campos',
+      sexo: 'Hombre',
+      fecha: '13/04/1999',
+      estadoCivil: 'Soltero',
+      // Adicional
+      padre: 'Milton Nicolás Pérez Paredes',
+      madre: 'Jennifer Teresa Campos Valverde',
+      conyugue: 'Sofía Viviana Castro Espinosa',
+      domicilio: 'OE5-99',
+      provinciaAdicional: 'Pichincha',
+      cantonAdicional: 'Quito',
+      parroquiaAdicional: 'Chillogallo',
+      instruccion: 'Superior',
+      profesion: 'Ingeniero eléctrico',
+      // Nacimiento
+      tomoNacimiento: 123,
+      claseNacimiento: 456,
+      paginaNacimiento: 789,
+      actaNacimiento: 145,
+      fechaNacimiento: '12/01/2008',
+      lugarNacimiento: 'Prichincha, Quito, Belisario Quevedo',
+      // Matrimonio
+      tomoMatrimonio: 123,
+      claseMatrimonio: 456,
+      paginaMatrimonio: 789,
+      actaMatrimonio: 145,
+      lugarMatrimonio: 'Prichincha, Quito, Belisario Quevedo',
+    });
   }
 
   abrirConfirmacion(){
@@ -122,11 +152,14 @@ export class VerificacionDatosPersonalesComponent implements OnInit {
   }
 
   mostrarCampoInconsistencia(campo: CampoEntradaInterface){
+    this.formGroup.get(campo.nameField)?.enable()
+    /*
     if(campo.editable === undefined){
       campo.editable = true
     }else{
       campo.editable = !campo.editable
     }
+    */
   }
 
   mostrarNotificacion(notificacionOpciones: NotificacionInterface, redirectTo: string, mostrarExito: boolean){

@@ -7,9 +7,9 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
     type: TipoCampoEnum.TEXT,
     title: 'Padre: ',
     nameField: 'padre',
-    helpText: 'Ingrese solo letras (Nombre completo)',
-    screenReaderText: 'Ingrese el nombre completo de su padre',
-    placeholder: 'Milton Stalin Rosero Cadena',
+    helpText: 'Ingrese el nombre completo de su padre',
+    screenReaderText: 'Nombre completo de su padre',
+    placeholder: 'Ej: Milton Stalin Rosero Cadena',
     mensajes: [
       {
         tipo: TipoMensajeEnum.REQUERIDO,
@@ -28,9 +28,9 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
     type: TipoCampoEnum.TEXT,
     title: 'Madre: ',
     nameField: 'madre',
-    helpText: 'Ingrese solo letras (Nombre completo)',
-    screenReaderText: 'Ingrese el nombre completo de su madre',
-    placeholder: 'Jenny Tatiana Peñaherrera Tumipamba',
+    helpText: 'Ingrese el nombre completo de su madre',
+    screenReaderText: 'Nombre completo de su madre',
+    placeholder: 'Ej: Jenny Tatiana Peñaherrera Tumipamba',
     mensajes: [
       {
         tipo: TipoMensajeEnum.REQUERIDO,
@@ -42,16 +42,16 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
         opciones: {min: 15, max: 30}
       },
     ],
-    deshabilitar: false
+    deshabilitar: true
   },
 
   {
     type: TipoCampoEnum.TEXT,
     title: 'Conyugue: ',
     nameField: 'conyugue',
-    helpText: 'Ingrese solo letras (Nombre completo)',
-    screenReaderText: 'Ingrese el nombre completo de su conyuge (si tuviera)',
-    placeholder: '...',
+    helpText: 'Ingrese el nombre completo de su cónyuge (si corresponde)',
+    screenReaderText: 'Nombre completo de su cónyuge',
+    placeholder: 'Ej: Jenny Tatiana Peñaherrera Tumipamba',
     mensajes: [
       {
         tipo: TipoMensajeEnum.REQUERIDO,
@@ -63,7 +63,7 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
         opciones: {min: 15, max: 30}
       },
     ],
-    deshabilitar: false
+    deshabilitar: true
   },
 
   {
@@ -71,8 +71,8 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
     title: 'Nro.Domicilio: ',
     nameField: 'domicilio',
     helpText: 'Ingrese su número de domicilio (ej. OE8-177)',
-    screenReaderText: 'Ingrese su número de domicilio (ej. OE8-177)',
-    placeholder: 'OE8-177',
+    screenReaderText: 'Número de domicilio (ej. OE8-177)',
+    placeholder: 'Ej: OE8-177',
     mensajes: [
       {
         tipo: TipoMensajeEnum.REQUERIDO,
@@ -84,7 +84,7 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
         opciones: {min: 5, max: 10}
       },
     ],
-    deshabilitar: false
+    deshabilitar: true
   },
 
   {
@@ -93,14 +93,13 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
     nameField: 'provinciaAdicional',
     helpText: 'Seleccione una provincia',
     screenReaderText: 'Seleccione una provincia',
-    placeholder: 'Pichincha',
     mensajes: [
       {
         tipo: TipoMensajeEnum.REQUERIDO,
         textoMensaje: 'Este campo es requerido',
       },
     ],
-    deshabilitar: false,
+    deshabilitar: true,
     opciones: [
       {clave: "1", valor: "Azuay"},
       {clave: "2", valor: "Bolívar"},
@@ -135,14 +134,13 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
     nameField: 'cantonAdicional',
     helpText: 'Seleccione un canton',
     screenReaderText: 'Seleccione un canton',
-    placeholder: 'Quito',
     mensajes: [
       {
         tipo: TipoMensajeEnum.REQUERIDO,
         textoMensaje: 'Este campo es requerido',
       },
     ],
-    deshabilitar: false,
+    deshabilitar: true,
     opciones: [
       {clave: "1", valor: "Quito"},
       {clave: "2", valor: "Cayambe"},
@@ -161,14 +159,13 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
     nameField: 'parroquiaAdicional',
     helpText: 'Seleccione una parroquia',
     screenReaderText: 'Seleccione una parroquia',
-    placeholder: 'Belisario Quevedo',
     mensajes: [
       {
         tipo: TipoMensajeEnum.REQUERIDO,
         textoMensaje: 'Este campo es requerido',
       },
     ],
-    deshabilitar: false,
+    deshabilitar: true,
     opciones: [
       {clave: "1", valor: "Belisario Quevedo"},
       {clave: "2", valor: "Carcelén"},
@@ -203,14 +200,13 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
     nameField: 'instruccion',
     helpText: 'Seleccione su instruccion',
     screenReaderText: 'Seleccione su instruccion',
-    placeholder: 'Secundaria',
     mensajes: [
       {
         tipo: TipoMensajeEnum.REQUERIDO,
         textoMensaje: 'Este campo es requerido',
       },
     ],
-    deshabilitar: false,
+    deshabilitar: true,
     opciones: [
       {clave: "1", valor: "Primaria"},
       {clave: "2", valor: "Secundaria"},
@@ -222,9 +218,9 @@ export const informacionAdicionalForm: CampoEntradaInterface[] = [
     type: TipoCampoEnum.TEXT,
     title: 'Profesion: ',
     nameField: 'profesion',
-    helpText: 'Ingrese su profesion (ej. Ingeniería de Software)',
-    screenReaderText: 'Ingrese su profesion (ej. Ingeniería de Software)',
-    placeholder: 'Ingeniería de Software',
+    helpText: 'Ingrese el nombre de su profesion',
+    screenReaderText: 'Profesion (ej. Ingeniería de Software)',
+    placeholder: 'Ej: Ingeniería de Software',
     mensajes: [
       {
         tipo: TipoMensajeEnum.REQUERIDO,
